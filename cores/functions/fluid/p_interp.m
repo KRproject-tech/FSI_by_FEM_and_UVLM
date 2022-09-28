@@ -1,0 +1,30 @@
+function out = p_interp( x, i_element, dL_vec, Nx, Ny)
+
+
+
+
+%%[0] ˆ³—Í‚ÌüŒ`•âŠÔŠÖ” (X•ûŒü)
+H_func = @( x)( x >= 0 );
+dL_f = dL_vec(1:Ny:end);
+
+ii = floor( (i_element - 1)/Ny) + 1; 
+
+if ii > 1 && ii < Nx
+    
+    out = [ (3*dL_f(ii) - 4*x)/(3*dL_f(ii) + dL_f(ii-1)).*(H_func( x) - H_func( x - 3/4*dL_f(ii)));
+            (dL_f(ii-1) + 4*x)/(3*dL_f(ii) + dL_f(ii-1)).*(H_func( x) - H_func( x - 3/4*dL_f(ii))) + ( 3*dL_f(ii+1) - 4*(x - dL_f(ii+1)) )/(3*dL_f(ii+1) + dL_f(ii)).*(H_func( x - 3/4*dL_f(ii)) - H_func( x - dL_f(ii)));
+            ( dL_f(ii) + 4*(x - dL_f(ii+1)) )/(3*dL_f(ii+1) + dL_f(ii)).*(H_func( x - 3/4*dL_f(ii)) - H_func( x - dL_f(ii)))];
+elseif ii == 1
+    
+    out = [ 0;
+            (H_func( x) - H_func( x - 3/4*dL_f(ii))) + ( 3*dL_f(ii+1) - 4*(x - dL_f(ii+1)) )/(3*dL_f(ii+1) + dL_f(ii)).*(H_func( x - 3/4*dL_f(ii)) - H_func( x - dL_f(ii)));
+            ( dL_f(ii) + 4*(x - dL_f(ii+1)) )/(3*dL_f(ii+1) + dL_f(ii)).*(H_func( x - 3/4*dL_f(ii)) - H_func( x - dL_f(ii)))];
+else
+    %% Œã‰‚Ìˆ³—Í‚Í0
+    
+    out = [ (3*dL_f(ii) - 4*x)/(3*dL_f(ii) + dL_f(ii-1)).*(H_func( x) - H_func( x - 3/4*dL_f(ii)));
+            (dL_f(ii-1) + 4*x)/(3*dL_f(ii) + dL_f(ii-1)).*(H_func( x) - H_func( x - 3/4*dL_f(ii))) + ( 4*dL_f(ii) - 4*x )/dL_f(ii).*(H_func( x - 3/4*dL_f(ii)) - H_func( x - dL_f(ii)));
+            0];
+end
+
+end
