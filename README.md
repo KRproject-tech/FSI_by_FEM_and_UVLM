@@ -5,3 +5,4 @@ source code for Matlab (Windows): FSI analysis for the flapping sheet (This code
 
 ## Image
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
+Streamlines around flapping sheets (not pathlines)
