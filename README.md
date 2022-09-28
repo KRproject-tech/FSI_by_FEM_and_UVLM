@@ -8,6 +8,7 @@ Fluid flow is modeled using the unsteady vortex lattice method (UVLM). A flexibl
 
 ## Preparation before analysis
 __[Step 1]__ Install the ToolBoxes
+
 The following ToolBoxes in “./ ToolBoxes/” are required,
 *	“Meshing a plate using four noded elements” by KSSV
 https://jp.mathworks.com/matlabcentral/fileexchange/33731-meshing-a-plate-using-four-noded-elements
@@ -22,13 +23,20 @@ https://jp.mathworks.com/matlabcentral/fileexchange/11278-tristream
 *	“Vectorized Multi-Dimensional Matrix Multiplication” by Darin Koblick:
 https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
 
+__[Step 1.2]__ Modify the source code
+
+
+
 __[Step 2]__ Start GUI form
+
 Open the “GUI.fig” from MATLAB.
 
 __[Step 3]__ Start analysis
+
 Push the “exe” button and wait until the finish of the analysis.
 
 __[Step 4]__ Plot results
+
 Push the “plot” button.
 
 
