@@ -25,7 +25,7 @@ https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimen
 
 __[Step 1.2] Add path to installed ToolBoxes__
 
-Modify "addpathes.m".
+Modify "add_pathes.m".
 
 __[Step 1.3] Modify the source code in the “TriStream” ToolBox__
 
