@@ -69,10 +69,12 @@ Streamlines around flapping sheets (not pathlines)
 
 ## References
 
-[1] Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).
+[1] Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).
+
 https://doi.org/10.1299/mej.20-00459
 
 [2] Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, (2022).
+
 https://doi.org/10.1142/S0219455422501632
 
 
