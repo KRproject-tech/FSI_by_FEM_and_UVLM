@@ -51,6 +51,9 @@ __[Step 2] Start GUI form__
 
 Open the “GUI.fig” from MATLAB.
 
+![タイトルなし](https://user-images.githubusercontent.com/114337358/192756887-25b36670-8faa-423f-b535-63a536ced8c8.png)
+
+
 __[Step 3] Start analysis__
 
 Push the “exe” button and wait until the finish of the analysis.
