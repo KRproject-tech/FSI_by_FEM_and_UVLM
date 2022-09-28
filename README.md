@@ -24,6 +24,7 @@ https://jp.mathworks.com/matlabcentral/fileexchange/11278-tristream
 https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
 
 __[Step 1.2] Add path to installed ToolBoxes__
+
 Modify "addpathes.m".
 
 __[Step 1.3] Modify the source code in the “TriStream” ToolBox__
