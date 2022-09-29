@@ -53,6 +53,8 @@ Open the “GUI.fig” from MATLAB.
 
 ![タイトルなし](https://user-images.githubusercontent.com/114337358/192756887-25b36670-8faa-423f-b535-63a536ced8c8.png)
 
+__[Step 2.1] Pre-setting__
+Push the "parameter" buttun and edit parameters.
 
 __[Step 3] Start analysis__
 
