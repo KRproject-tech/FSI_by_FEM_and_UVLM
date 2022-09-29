@@ -55,7 +55,7 @@ Open the “GUI.fig” from MATLAB.
 
 __[Step 2.1] Pre-setting__
 
-Push the "parameter" buttun and edit parameters.
+Push the "Parameters" buttun and edit parameters.
 
 __[Step 3] Start analysis__
 
