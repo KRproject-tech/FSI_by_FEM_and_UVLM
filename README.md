@@ -76,11 +76,13 @@ Streamlines around flapping sheets (not pathlines)
 
 https://doi.org/10.1299/mej.20-00459
 
-[2] Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, (2022).
+[2] Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).
 
 https://doi.org/10.1142/S0219455422501632
 
+[3] Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).
 
+https://doi.org/10.1016/j.jsv.2020.115359
 
 
 
