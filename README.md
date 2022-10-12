@@ -71,6 +71,9 @@ Push the “plot” button.
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
 Streamlines around flapping sheets (not pathlines)
 
+![displacement](https://user-images.githubusercontent.com/114337358/195290706-db1c0575-f07e-4d27-9696-a1ede965fedd.png)
+Wake behind sheets
+
 ![snapshot](https://user-images.githubusercontent.com/114337358/195290303-25102659-399d-45a3-b99a-e861bdb5a68e.png)
 Snapshot of two flapping sheets
 
