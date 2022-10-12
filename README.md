@@ -67,9 +67,12 @@ Push the “plot” button.
 
 
 ## Image
+
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
 Streamlines around flapping sheets (not pathlines)
 
+![snapshot](https://user-images.githubusercontent.com/114337358/195290303-25102659-399d-45a3-b99a-e861bdb5a68e.png)
+Snapshot of two flapping sheets
 
 ## Movie
 
