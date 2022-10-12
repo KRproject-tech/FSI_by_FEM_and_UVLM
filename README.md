@@ -77,7 +77,7 @@ Wake behind sheets
 ![snapshot](https://user-images.githubusercontent.com/114337358/195290303-25102659-399d-45a3-b99a-e861bdb5a68e.png)
 Snapshot of two flapping sheets
 
-## Movie
+## Demonstration movie
 
 https://youtu.be/9FOBByPBSeA
 
