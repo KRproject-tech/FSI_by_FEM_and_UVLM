@@ -84,16 +84,32 @@ theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional materia
 ````
 where
 
-* __Mass ratio $M^*$__ is the density ratio of the fluid and sheet
-* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia
+* __Mass ratio $M^*$__ is the density ratio of the fluid and sheet,
+* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia.
 
  Initial disturbances on two sheets to break the trivial equilibrium are written as, 
-
 ````
 q_in_norm = @( time)( 0.5*sin( pi*time/0.2).*( time < 0.2 ) );              %% Initial disturbance (upper sheet)
 q_in_norm_1 = @( time)( 0.0*sin( pi*time/0.2).*( time < 0.2 ) );        	%% Initial disturbance (lower sheet)
 q_in_vec = [ 0 0 1].';                                                      %% Force direction [-]  
 ````
+
+Boundary conditions for two sheets are written as,
+````
+%% Boundary conditions for two sheets
+
+%%[0] Upper sheet
+node_r_0 = [ 1:Ny+1 ];                                                      %% Node number giving the displacement constraint [-]
+node_dxr_0 = [ 1:Ny+1 ];                                                    %% Node number giving x-directional gradient constraint [-]
+node_dyr_0 = [ 1:Ny+1 ];                                                    %% Node number giving y-directional gradient constraint [-]
+
+%%[1] Lower sheet
+node_r_0_1 = [ 1:Ny+1 ];                                                    %% Node number giving the displacement constraint [-]
+node_dxr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving x-directional gradient constraint [-]
+node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving y-directional gradient constraint [-]
+
+````
+where index in vector shows the node index around a plate element to apply boundary conditions.
 
 
 ## Image
