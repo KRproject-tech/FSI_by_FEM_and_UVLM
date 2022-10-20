@@ -111,6 +111,9 @@ node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% N
 ````
 where index in vector shows the node index around a plate element to apply boundary conditions.
 
+![タイトルなし](https://user-images.githubusercontent.com/114337358/196866330-b2dec9e7-cacc-441a-9c69-da409bc73a81.png)
+(b) Shell elements on a plate. A flexible sheet is partitioned by shell elements when the number of elements is $N_{elem} := N_x N_y$ [2].
+
 
 ## Image
 
