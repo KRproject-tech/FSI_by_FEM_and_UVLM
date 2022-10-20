@@ -66,6 +66,36 @@ __[Step 4] Plot results__
 Push the “plot” button.
 
 
+## Parameters
+
+Analytical condisions are in "./save/param_setting.m"
+
+````
+%% Analytical conditions
+End_Time = 20;                                          %% Nondimensional analysis time [-]
+d_t = 1.0e-3;                                           %% Nondimensional step time [-]
+core_num = 6;                                           %% Core number [-]
+speed_check = 0;                                        %% 1:ON, 0:OFF [-]
+alpha_v = 0.5;                                          %% 1:implicit solver，0:explicit solver [-]
+
+Ma = 1.0;                                              %% Mass ratio [-]
+Ua = 15.0;                                            	%% Nondimensional flow velocity [-]
+theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional material damping [-]
+````
+where
+
+* __Mass ratio $M^*$__ is the density ratio of the fluid and sheet
+* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia
+
+ Initial disturbances on two sheets to break the trivial equilibrium are written as, 
+
+````
+q_in_norm = @( time)( 0.5*sin( pi*time/0.2).*( time < 0.2 ) );              %% Initial disturbance (upper sheet)
+q_in_norm_1 = @( time)( 0.0*sin( pi*time/0.2).*( time < 0.2 ) );        	%% Initial disturbance (lower sheet)
+q_in_vec = [ 0 0 1].';                                                      %% Force direction [-]  
+````
+
+
 ## Image
 
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
