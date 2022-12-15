@@ -10,17 +10,22 @@ Fluid flow is modeled using the unsteady vortex lattice method (UVLM). A flexibl
 __[Step 1] Install the ToolBoxes__
 
 The following ToolBoxes in “./ ToolBoxes/” are required,
-*	“Meshing a plate using four noded elements” by KSSV
+*	__“Meshing a plate using four noded elements”__ by KSSV:  
 https://jp.mathworks.com/matlabcentral/fileexchange/33731-meshing-a-plate-using-four-noded-elements
-*	“mmwrite” by Micah Richert:
+
+*	__“mmwrite”__ by Micah Richert:  
 https://jp.mathworks.com/matlabcentral/fileexchange/15881-mmwrite
-*	“Quiver 5” by Bertrand Dano:
+
+*	__“Quiver 5”__ by Bertrand Dano:  
 https://jp.mathworks.com/matlabcentral/fileexchange/22351-quiver-5?s_tid=FX_rc3_behav
-*	“Sparse sub access” by Bruno Luong: 
+
+*	__“Sparse sub access”__ by Bruno Luong:  
 https://jp.mathworks.com/matlabcentral/fileexchange/23488-sparse-sub-access
-*	“TriStream” by Matthew Wolinsky:
+
+*	__“TriStream”__ by Matthew Wolinsky:  
 https://jp.mathworks.com/matlabcentral/fileexchange/11278-tristream
-*	“Vectorized Multi-Dimensional Matrix Multiplication” by Darin Koblick:
+
+*	__“Vectorized Multi-Dimensional Matrix Multiplication”__ by Darin Koblick:  
 https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
 
 __[Step 1.2] Add path to installed ToolBoxes__
