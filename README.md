@@ -135,8 +135,7 @@ Snapshot of two flapping sheets
 
 https://youtu.be/9FOBByPBSeA
 
-## References
-
+### References  
 [^1]: Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
 https://doi.org/10.1299/mej.20-00459
 
