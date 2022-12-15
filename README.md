@@ -1,10 +1,9 @@
 # FSI_by_FEM_and_UVLM
-Fluid-Structure Interaction Analysis Using FEM and UVLM:
-
+Fluid-Structure Interaction Analysis Using FEM and UVLM [^1][^2][^3]:  
 source code for Matlab (Windows): FSI analysis for the flapping sheet (This code is validated with MATLAB R2007b or later versions)
 
 ## Overview
-Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^4]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity [^1][^2][^3].
+Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^4]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity.
 
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
