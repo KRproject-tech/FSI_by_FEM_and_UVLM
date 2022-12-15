@@ -4,7 +4,7 @@ Fluid-Structure Interaction Analysis Using FEM and UVLM:
 source code for Matlab (Windows): FSI analysis for the flapping sheet (This code is validated with MATLAB R2007b or later versions)
 
 ## Overview
-Fluid flow is modeled using the unsteady vortex lattice method (UVLM). A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity.
+Fluid flow is modeled using the unsteady vortex lattice method (UVLM). A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity [^1][^2][^3].
 
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
@@ -117,7 +117,7 @@ node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% N
 where index in vector shows the node index around a plate element to apply boundary conditions.
 
 ![タイトルなし](https://user-images.githubusercontent.com/114337358/196866330-b2dec9e7-cacc-441a-9c69-da409bc73a81.png)
-(b) Shell elements on a plate. A flexible sheet is partitioned by shell elements when the number of elements is $N_{elem} := N_x N_y$ [2].
+(b) Shell elements on a plate. A flexible sheet is partitioned by shell elements when the number of elements is $N_{elem} := N_x N_y$ [^2].
 
 
 ## Image
@@ -137,15 +137,15 @@ https://youtu.be/9FOBByPBSeA
 
 ## References
 
-[1] Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).
+[^1] Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).
 
 https://doi.org/10.1299/mej.20-00459
 
-[2] Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).
+[^2] Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).
 
 https://doi.org/10.1142/S0219455422501632
 
-[3] Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).
+[^3] Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).
 
 https://doi.org/10.1016/j.jsv.2020.115359
 
