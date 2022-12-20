@@ -1,5 +1,5 @@
 # FSI_by_FEM_and_UVLM
-Fluid-Structure Interaction Analysis Using FEM and UVLM [^1][^2][^3]:  
+Fluid-Structure Interaction Analysis Using FEM and UVLM to analysis the flapping sheet under the post-flutter [^1][^2][^3]:  
 source code for Matlab (Windows): FSI analysis for the flapping sheet (This code is validated with MATLAB R2007b or later versions)
 
 ## Overview
