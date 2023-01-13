@@ -89,7 +89,7 @@ theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional materia
 where
 
 * __Mass ratio $M^*$__ is the density ratio of the fluid and sheet,
-* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia.
+* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia [^1][^2][^3].
 
  Initial disturbances on two sheets to break the trivial equilibrium are written as, 
 ````
