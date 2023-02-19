@@ -1,7 +1,7 @@
 ![図1](https://user-images.githubusercontent.com/114337358/219939559-f0153a0e-2202-4760-9e00-2342ade1eb8a.png)
 
 # <p align=center>FSI_by_FEM_and_UVLM</p>
-__<p align=center>Fluid-Structure Interaction Analysis Using FEM and UVLM to analysis the flapping sheet under the post-flutter [^1][^2][^3]:  
+__<p align=center>Fluid-Structure Interaction Analysis Using FEM and UVLM to analysis the flapping sheet under the post-flutter[^1][^2][^3]:  
 source code for Matlab (Windows): FSI analysis for the flapping sheet (This code is validated with MATLAB R2007b or later versions)</p>__
 
 ## Overview
