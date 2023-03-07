@@ -12,7 +12,7 @@ __[Step 1] Install the ToolBoxes__
 
 The following ToolBoxes in “./ ToolBoxes/” are required,
 
-__For analysis:__
+__For numerical analysis:__
 *	__“Meshing a plate using four noded elements”__ by KSSV:  
 https://jp.mathworks.com/matlabcentral/fileexchange/33731-meshing-a-plate-using-four-noded-elements
 
@@ -22,7 +22,7 @@ https://jp.mathworks.com/matlabcentral/fileexchange/23488-sparse-sub-access
 *	__“Vectorized Multi-Dimensional Matrix Multiplication”__ by Darin Koblick:  
 https://jp.mathworks.com/matlabcentral/fileexchange/47092-vectorized-multi-dimensional-matrix-multiplication?s_tid=prof_contriblnk
 
-__For plot results:__
+__For plotting results:__
 *	__“TriStream”__ by Matthew Wolinsky:  
 https://jp.mathworks.com/matlabcentral/fileexchange/11278-tristream
 
