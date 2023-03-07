@@ -79,7 +79,10 @@ i_ax = i_ax + 1;
 
 %%[1-0] plot behavior
 h_fig(2) = figure(2);
-set( h_fig(2), 'Position', [100 100 1200 500], 'render', 'zbuffer', 'doublebuffer','on')
+% set( h_fig(2), 'Position', [100 100 1200 500], 'render', 'zbuffer',
+% 'doublebuffer','on')
+figure4movie( h_fig(2), [100 100 1500 600])
+set( h_fig(2), 'render', 'zbuffer', 'doublebuffer','on')
 h_ax(i_ax) = axes( 'Parent', h_fig(2), 'FontSize', 15);
 
 
