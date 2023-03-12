@@ -42,7 +42,11 @@ https://jp.mathworks.com/matlabcentral/fileexchange/22351-quiver-5?s_tid=FX_rc3_
 
 __[Step 1.2] Add path to installed ToolBoxes__
 
-Modify "add_pathes.m" to add path to abovementined installed ToolBoxes.
+Modify "add_pathes.m" to add path to abovementined installed ToolBoxes as follows,
+````
+addpath ./ToolBoxes/XXXX;
+````
+where `XXXX` is the name of folder of the installed ToolBox.
 
 __[Step 1.3] Modify the source code in the “TriStream” ToolBox__
 
