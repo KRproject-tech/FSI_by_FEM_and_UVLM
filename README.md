@@ -136,7 +136,7 @@ where index in vector shows the node index around a plate element to apply bound
 (b) Shell elements on a plate. A flexible sheet is partitioned by shell elements when the number of elements is $N_{elem} := N_x N_y$ [^2].
 
 
-## Image
+## Gallery
 
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
 Streamlines around flapping sheets (not streaklines)
