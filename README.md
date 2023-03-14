@@ -112,9 +112,9 @@ $$M^* := \dfrac{1}{\mu} = \dfrac{\rho_f L}{\rho_m H},$$
 where $\rho_f$ and $\rho_m$ are the density of fluid and sheet, respectively. $L$ is the total length of sheet, and $H$ is the thickness of sheet.
 
 
-* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia [^1][^2][^3].
+* __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia [^1][^2][^3],
     
-$$U^* := \sqrt{ \dfrac{\mu}{\eta}} = \sqrt{ \dfrac{ \rho_m H L^2 W U^2_\infty }{ EI }} $$
+$$U^* := \sqrt{ \dfrac{\mu}{\eta}} = \sqrt{ \dfrac{ \rho_m H L^2 W U^2_\infty }{ EI }}. $$
 
  Initial disturbances on two sheets to break the trivial equilibrium are written as, 
 ````
