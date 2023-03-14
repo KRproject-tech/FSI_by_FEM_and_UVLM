@@ -107,14 +107,14 @@ theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional materia
 
 * __Mass ratio $M^*$__ is the density ratio of the fluid and sheet, which is defined by,
 
-$$M^* := \dfrac{1}{\mu} = \dfrac{\rho_f L}{\rho_m H},$$
+$$M^* := \dfrac{1}{\mu} = \dfrac{\rho_f L}{\rho_m h},$$
 
-where $\rho_f$ and $\rho_m$ are the density of fluid and sheet, respectively. $L$ is the total length of sheet, and $H$ is the thickness of sheet.
+where $\rho_f$ and $\rho_m$ are the density of fluid and sheet, respectively. $L$ is the total length of sheet, and $h$ is the thickness of sheet.
 
 
 * __Nondimensional flow velocity $U^*$__ represents the free-stream velocity nondimensionalized by the flag rigidity and inertia [^1][^2][^3],
     
-$$U^* := \sqrt{ \dfrac{\mu}{\eta}} = \sqrt{ \dfrac{ \rho_m H L^2 W U^2_\infty }{ EI }}. $$
+$$U^* := \sqrt{ \dfrac{\mu}{\eta}} = \sqrt{ \dfrac{ \rho_m h L^2 H U^2_\infty }{ EI }}. $$
 
  Initial disturbances on two sheets to break the trivial equilibrium are written as, 
 ````
