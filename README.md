@@ -127,6 +127,8 @@ q_in_vec = [ 0 0 1].';                                                      %% F
 ````
 
 Boundary conditions for two sheets are written as,
+
+* Clamped at the leading-edge
 ````
 %% Boundary conditions for two sheets
 
@@ -138,6 +140,22 @@ node_dyr_0 = [ 1:Ny+1 ];                                                    %% N
 %%[1] Lower sheet
 node_r_0_1 = [ 1:Ny+1 ];                                                    %% Node number giving the displacement constraint [-]
 node_dxr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving x-directional gradient constraint [-]
+node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving y-directional gradient constraint [-]
+
+````
+
+* Pinned at the leading-edge
+````
+%% Boundary conditions for two sheets
+
+%%[0] Upper sheet
+node_r_0 = [ 1:Ny+1 ];                                                      %% Node number giving the displacement constraint [-]
+node_dxr_0 = [ ];                                                           %% Node number giving x-directional gradient constraint [-]
+node_dyr_0 = [ 1:Ny+1 ];                                                    %% Node number giving y-directional gradient constraint [-]
+
+%%[1] Lower sheet
+node_r_0_1 = [ 1:Ny+1 ];                                                    %% Node number giving the displacement constraint [-]
+node_dxr_0_1 = [ ];                                                         %% Node number giving x-directional gradient constraint [-]
 node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving y-directional gradient constraint [-]
 
 ````
