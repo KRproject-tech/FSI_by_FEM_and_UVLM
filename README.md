@@ -128,7 +128,7 @@ q_in_vec = [ 0 0 1].';                                                      %% F
 
 Boundary conditions for two sheets are written as,
 
-* Clamped at the leading-edge
+* __Clamped at the leading-edge__
 ````
 %% Boundary conditions for two sheets
 
@@ -144,7 +144,7 @@ node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% N
 
 ````
 
-* Pinned at the leading-edge
+* __Pinned at the leading-edge__
 ````
 %% Boundary conditions for two sheets
 
