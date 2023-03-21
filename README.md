@@ -136,7 +136,7 @@ Height = 2.0;                              	    %% distance between two sheets [
 thick = 1e-3;                                   %% thickness [-]
 
 ````
-where the aspect ratio `Width` is $H^* := H/L$, and the distance between two sheets `Height` is $D^* := D/L$.
+where the aspect ratio `Width` is $H^* := H/L$, thickness `thick` is $h^* := h/L$, and the distance between two sheets `Height` is $D^* := D/L$.
  
 
 Boundary conditions for two sheets are written as,
