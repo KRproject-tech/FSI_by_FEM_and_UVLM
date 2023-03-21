@@ -126,6 +126,19 @@ q_in_norm_1 = @( time)( 0.0*sin( pi*time/0.2).*( time < 0.2 ) );        	%% Init
 q_in_vec = [ 0 0 1].';                                                      %% Force direction [-]  
 ````
 
+
+Dimensions of sheets are defined by,
+
+````
+Length = 1.0;                                   %% (Nondimensional) length [-]
+Width = 1.0;                                    %% aspect ratio [-]
+Height = 2.0;                              	    %% distance between two sheets [-]
+thick = 1e-3;                                   %% thickness [-]
+
+````
+where the aspect ratio `Width` is $H^* := H/L$, and the distance between two sheets `Height` is $D^* := D/L$.
+ 
+
 Boundary conditions for two sheets are written as,
 
 * __Clamped at the leading-edge__
