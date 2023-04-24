@@ -195,7 +195,7 @@ __Wake behind sheets__
 __Snapshot of two flapping sheets__
 
 ![comparison](https://user-images.githubusercontent.com/114337358/233918767-5ddeca5e-bd84-4662-b5f2-995c8b75cd7e.png)
-__Comparisons of Snapshot of a flapping sheet under various $U^*$ between numerical results (above) and experimental results (below) [^6]__
+__Comparisons of snapshot of a flapping sheet under various $U^*$ between numerical results (above) [^3] and experimental results (below) [^6]__
 
 
 ## Demonstration movie
@@ -214,9 +214,9 @@ https://doi.org/10.1016/j.jsv.2020.115359
 
 [^4]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
 
-[^5]:  J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+[^5]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
 
-[^6]: 
+[^6]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
 
 
 
