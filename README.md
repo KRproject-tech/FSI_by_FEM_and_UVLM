@@ -186,16 +186,16 @@ where index in vector shows the node index around a plate element to apply bound
 ## Gallery
 
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
-Streamlines around flapping sheets (not streaklines)
+__Streamlines around flapping sheets (not streaklines)__
 
 ![displacement](https://user-images.githubusercontent.com/114337358/195290706-db1c0575-f07e-4d27-9696-a1ede965fedd.png)
-Wake behind sheets
+__Wake behind sheets__
 
 ![snapshot](https://user-images.githubusercontent.com/114337358/195290303-25102659-399d-45a3-b99a-e861bdb5a68e.png)
-Snapshot of two flapping sheets
+__Snapshot of two flapping sheets__
 
-![タイトルなし](https://user-images.githubusercontent.com/114337358/225522325-2c9da220-ec58-48cd-b554-f2642541aed9.png)
-Snapshot of a flapping sheet under various $U^*$
+![comparison](https://user-images.githubusercontent.com/114337358/233918767-5ddeca5e-bd84-4662-b5f2-995c8b75cd7e.png)
+__Comparisons of Snapshot of a flapping sheet under various $U^*$ between numerical results (above) and experimental results (below) [^6]__
 
 
 ## Demonstration movie
@@ -215,6 +215,8 @@ https://doi.org/10.1016/j.jsv.2020.115359
 [^4]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
 
 [^5]:  J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+
+[^6]: 
 
 
 
