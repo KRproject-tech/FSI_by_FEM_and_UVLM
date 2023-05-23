@@ -90,7 +90,11 @@ Push the “exe” button and wait until the finish of the analysis.
 __[Step 4] Plot results__
 
 Push the “plot” button.
+    
+__[Step 5] View plotted results__
 
+Plotted results (figures and movie) by [Step 4] are in "./XXXX/save" directory.
+    
 
 ## Parameters
 
