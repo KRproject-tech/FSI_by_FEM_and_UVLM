@@ -1,0 +1,283 @@
+%% Wakeƒpƒlƒ‹ƒm[ƒh“_ã‚Ì—¬‘¬‚ðŽZo+Wake¶¬
+
+
+    
+if i_wake_time == 1    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% ŒvŽZŠJŽn’¼Œã  
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    %%[2-0] Œã‰ƒpƒlƒ‹ƒm[ƒhÀ•WŽæ“¾ [m]
+    i_trail = N_element-Ny+1:N_element;
+    N_trail = length( i_trail);                                             %% Œã‰ƒpƒlƒ‹” [-]
+    r_panel_vec_2_end = r_panel_vec_2(i_trail,:);
+    r_panel_vec_3_end = r_panel_vec_3(i_trail,:);
+    r_panel_vec_31_end = r_panel_vec_3_end(1,:);                             %% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh
+
+
+    %%[2-1] •½”Âã‚Ì‰Qƒpƒlƒ‹‚É‚æ‚éŒã‰ƒpƒlƒ‹ƒm[ƒh‚Ö‚Ì—U“±‘¬“xŒvŽZ [m/s]
+    r_trail_vec = [ r_panel_vec_2_end;
+                    r_panel_vec_31_end];       
+    V_gamma_wake = V_wake_func( r_trail_vec, r_panel_vec_1, r_panel_vec_2, r_panel_vec_3, r_panel_vec_4, Gamma, var_param, 0);
+    
+
+    V_wake_2 = V_gamma_wake(1:end-1,:) + V_in(i_trail,:) - dt_r_panel_vec_2(i_trail,:);
+    V_wake_31 = V_gamma_wake(end,:) + V_in(i_trail(1),:) - dt_r_panel_vec_3(i_trail(1),:);
+
+
+    %%[2-2-0] Wakeƒpƒlƒ‹ƒm[ƒhÀ•W¶¬ [m]    
+    r_wake_1 = r_panel_vec_2_end;
+    r_wake_4 = r_panel_vec_3_end;
+    r_wake_2 = r_panel_vec_2_end + V_wake_2*d_t_wake;
+    r_wake_31 = r_panel_vec_31_end + V_wake_31*d_t_wake;
+    r_wake_3 = [ r_wake_31;
+                 r_wake_2(1:end-1,:)];
+
+    h_r_wake(i_wake_time) = { [ r_wake_1;
+                                r_wake_2;
+                                r_wake_3;
+                                r_wake_4] };
+                            
+    %%[2-2-1] Wakeƒm[ƒhˆÚ—¬‘¬“x [-]
+    dt_r_wake_1 = dt_r_panel_vec_2(i_trail,:);
+    dt_r_wake_4 = dt_r_panel_vec_3(i_trail,:);
+    dt_r_wake_2 = V_wake_2;                            
+    dt_r_wake_31 = V_wake_31;
+    dt_r_wake_3 = [ dt_r_wake_31;                                           %% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh‡B‚ÌˆÚ—¬‘¬“x
+                    dt_r_wake_2(1:end-1,:)];                                %% ‚»‚Ì‘¼‚ÌWakeƒm[ƒh‡B‚ÌˆÚ—¬‘¬“x
+
+    
+    %%[2-3] zŠÂ‚Ì•Û‘¶
+    Gamma_wake = Gamma_trail;
+    
+    h_Gamma_wake(i_wake_time) = { Gamma_wake };
+    
+    h_r_end(:,:,i_wake_time) = [ r_panel_vec_31_end;
+                                 r_panel_vec_2_end];
+    h_V_wake_end(:,:,i_wake_time) = [ V_wake_31(1,:);
+                                      V_wake_2(1:Ny,:)];
+
+elseif i_wake_time > 1
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% 2‰ñ–Ú‚ÌŒvŽZˆÈ~  
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    %%[*] è‡’lˆÈ~‚Å‚Í•ÏŒ`‚³‚¹‚È‚¢ (Œã‰•”‚Ìwake‚ÌØ‚èŽæ‚è‚É‚æ‚é•Ï“®‚Ì–hŽ~)
+    idx_R_wake_x_threshold_no_change = find( (r_wake_1(:,1) + r_wake_4(:,1))/2 > R_wake_x_threshold_no_change);    	%% R_wake_x_threshold_no_change: •ÏŒ`‚ð‹–—e‚·‚éWake––’[ˆÊ’u‚Ìè‡’l [m]
+    if ~isempty( idx_R_wake_x_threshold_no_change)
+
+        idx_R_wake_x_threshold_no_change = floor( idx_R_wake_x_threshold_no_change(1)/Ny)*Ny + 1;
+        idx_R_wake_x_threshold_no_change_31 = floor( idx_R_wake_x_threshold_no_change(1)/Ny) + 1;
+    end
+    
+    
+    
+
+    N_wake = size( r_wake_2, 1);                                            %% Wakeƒpƒlƒ‹” [-]
+
+    %%[2-4] Wakeƒm[ƒhÀ•W
+    r_panel_vec_2_end = r_panel_vec_2(i_trail,:);
+    r_panel_vec_3_end = r_panel_vec_3(i_trail,:);
+    r_panel_vec_31_end = r_panel_vec_3_end(1,:);
+  
+    %%[*] •½”ÂŒã‰‚Ìƒm[ƒh“_‚àŠÜ‚ß‚éD [m]
+    old_r_wake_2 = [ r_panel_vec_2_end;             
+                     r_wake_2];
+    old_r_wake_31 = [ r_panel_vec_31_end;
+                      r_wake_3(1:Ny:end,:)];                                %% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh
+    r_wake_23 = [ old_r_wake_2;
+                  old_r_wake_31];
+              
+              
+    %%[2-5] •½”ÂŒã‰‚ÌˆÚ“®‘¬“x [m/s]    
+    ii_trail = 1:N_trail;
+    N_wake_trail = N_wake+N_trail; 
+    dt_r_panel_vec_2_wake = zeros(N_wake_trail,3);
+    dt_r_panel_vec_31_wake = zeros(N_wake_trail/Ny,3);
+    dt_r_panel_vec_2_wake(ii_trail,:) = dt_r_panel_vec_2(i_trail,:);
+    dt_r_panel_vec_31_wake(1,:) = dt_r_panel_vec_3(i_trail(1),:);
+    
+    
+    %%[2-6] •½”Âã‚Ì‰Qƒpƒlƒ‹‚É‚æ‚éWakeƒpƒlƒ‹ƒm[ƒh‚Ö‚Ì—U“±‘¬“xŒvŽZ [m/s]           
+    V_gamma_wake = V_wake_func( r_wake_23, r_panel_vec_1, r_panel_vec_2, r_panel_vec_3, r_panel_vec_4, Gamma, var_param, 0);
+    
+    %%[2-7] Wakeƒpƒlƒ‹‚É‚æ‚éWakeƒpƒlƒ‹ƒm[ƒh‚Ö‚Ì—U“±‘¬“xŒvŽZ [m/s]     
+    V_gamma_w_wake = V_wake_func( r_wake_23, r_wake_1, r_wake_2, r_wake_3, r_wake_4, Gamma_wake, var_param, 0);
+    
+    %%[*] è‡’lˆÈ~‚Å‚Í•ÏŒ`‚³‚¹‚È‚¢ (Œã‰•”‚Ìwake‚ÌØ‚èŽæ‚è‚É‚æ‚é•Ï“®‚Ì–hŽ~)
+    if ~isempty( idx_R_wake_x_threshold_no_change)
+        
+        idx = [ idx_R_wake_x_threshold_no_change:N_wake_trail ...
+                N_wake_trail+idx_R_wake_x_threshold_no_change_31:size( r_wake_23, 1)];
+        
+        V_gamma_wake(idx,:) = 0;
+        V_gamma_w_wake(idx,:) = 0;
+    end
+    
+ 
+    %%[2-8] •½”ÂŒã‰ + Wakeƒpƒlƒ‹ƒm[ƒh‚Å‚Ì—¬‘¬ [m/s]
+    V_in_wake = ones(N_wake_trail,1)*U_in*[ 1 0 0]; 
+    V_wake_2_k1 = V_gamma_wake(1:N_wake_trail,:) + V_gamma_w_wake(1:N_wake_trail,:) + V_in_wake - dt_r_panel_vec_2_wake;
+    V_wake_31_k1 = V_gamma_wake(N_wake_trail+1:end,:) + V_gamma_w_wake(N_wake_trail+1:end,:) + V_in_wake(1:N_wake_trail/Ny,:) - dt_r_panel_vec_31_wake;
+
+    
+    
+    %%[2-9] Wakeƒpƒlƒ‹ƒm[ƒhÀ•W¶¬ [m]   
+    %%[*] —z“IEuler–@‚Å‚Í•sˆÀ’è
+    %%% H. ABEDI, Development of Vortex Filament Method for Aerodynamic
+    %%% Loads on Rotor Blades, Doctor thesis of Chalmers University of Technology, p. 33, 2013. 
+    
+    %%[*] yk1z
+    %%% RK4 method
+    r_wake_2_k1 = old_r_wake_2 + V_wake_2_k1*d_t_wake/2;
+    r_wake_31_k1 = old_r_wake_31 + V_wake_31_k1*d_t_wake/2;   
+    r_wake_3_k1 = zeros(N_wake_trail,3);
+    r_wake_3_k1(1:Ny:end,:) = r_wake_31_k1;                                   %% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh‡B
+    idx_r2 = 1:N_wake_trail;
+    idx_r2(1:Ny:end) = [];
+    r_wake_3_k1(idx_r2,:) = r_wake_2_k1(idx_r2-1,:);                          %% ‚»‚Ì‘¼‚ÌWakeƒm[ƒh‡B
+    r_wake_1_k1 = [ r_panel_vec_2_end;
+                   r_wake_2_k1(1:end-Ny,:)];
+    r_wake_4_k1 = [ r_panel_vec_3_end;
+                   r_wake_3_k1(1:end-Ny,:)];  
+               
+    %%[*] zŠÂ‚Ì•Û‘¶
+    %%% Kutta‚ÌðŒ‚ð–ž‚½‚·‚æ‚¤‚É•úo‰Q‚ðŒˆ‚ß‚éD
+    Gamma_wake = [ Gamma_trail;
+                   Gamma_wake];
+             
+    %%[*] yk2z
+    %%[*] •½”Âã‚Ì‰Qƒpƒlƒ‹‚É‚æ‚éWakeƒpƒlƒ‹ƒm[ƒh‚Ö‚Ì—U“±‘¬“xŒvŽZ [m/s]                       
+    r_wake_23_k1 = [ r_wake_2_k1;
+                    r_wake_31_k1];
+    V_gamma_wake_k2 = V_wake_func( r_wake_23_k1, r_panel_vec_1, r_panel_vec_2, r_panel_vec_3, r_panel_vec_4, Gamma, var_param, 0);
+    
+    %%[*] Wakeƒpƒlƒ‹‚É‚æ‚éWakeƒpƒlƒ‹ƒm[ƒh‚Ö‚Ì—U“±‘¬“xŒvŽZ [m/s]     
+    V_gamma_w_wake_k2 = V_wake_func( r_wake_23_k1, r_wake_1_k1, r_wake_2_k1, r_wake_3_k1, r_wake_4_k1, Gamma_wake, var_param, 0);
+    
+    %%[*] è‡’lˆÈ~‚Å‚Í•ÏŒ`‚³‚¹‚È‚¢ (Œã‰•”‚Ìwake‚ÌØ‚èŽæ‚è‚É‚æ‚é•Ï“®‚Ì–hŽ~)
+    if ~isempty( idx_R_wake_x_threshold_no_change)
+        
+        idx = [ idx_R_wake_x_threshold_no_change:N_wake_trail ...
+                N_wake_trail+idx_R_wake_x_threshold_no_change_31:size( r_wake_23, 1)];
+        
+        V_gamma_wake_k2(idx,:) = 0;
+        V_gamma_w_wake_k2(idx,:) = 0;
+    end
+             
+    %%[*] •½”ÂŒã‰ + Wakeƒpƒlƒ‹ƒm[ƒh‚Å‚Ì—¬‘¬ [m/s]
+    V_wake_2_k2 = V_gamma_wake_k2(1:N_wake_trail,:) + V_gamma_w_wake_k2(1:N_wake_trail,:) + V_in_wake - dt_r_panel_vec_2_wake;
+    V_wake_31_k2 = V_gamma_wake_k2(N_wake_trail+1:end,:) + V_gamma_w_wake_k2(N_wake_trail+1:end,:) + V_in_wake(1:N_wake_trail/Ny,:) - dt_r_panel_vec_31_wake;
+         
+    
+    
+    %%[*] •½”ÂŒã‰ + Wakeƒpƒlƒ‹ƒm[ƒh [m]
+    r_wake_2_k2 = old_r_wake_2 + V_wake_2_k2*d_t_wake/2;
+    r_wake_31_k2 = old_r_wake_31 + V_wake_31_k2*d_t_wake/2;
+    
+    r_wake_3_k2 = zeros(N_wake_trail,3);
+    r_wake_3_k2(1:Ny:end,:) = r_wake_31_k2;                                       %% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh‡B
+    r_wake_3_k2(idx_r2,:) = r_wake_2_k2(idx_r2-1,:);                              %% ‚»‚Ì‘¼‚ÌWakeƒm[ƒh‡B
+    r_wake_1_k2 = [ r_panel_vec_2_end;
+                    r_wake_2_k2(1:end-Ny,:)];
+    r_wake_4_k2 = [ r_panel_vec_3_end;
+                    r_wake_3_k2(1:end-Ny,:)];        
+                
+    %%[*] yk3z
+    r_wake_23_k2 = [ r_wake_2_k2;
+                    r_wake_31_k2];
+    V_gamma_wake_k3 = V_wake_func( r_wake_23_k2, r_panel_vec_1, r_panel_vec_2, r_panel_vec_3, r_panel_vec_4, Gamma, var_param, 0);
+    
+    %%[*] Wakeƒpƒlƒ‹‚É‚æ‚éWakeƒpƒlƒ‹ƒm[ƒh‚Ö‚Ì—U“±‘¬“xŒvŽZ [m/s]     
+    V_gamma_w_wake_k3 = V_wake_func( r_wake_23_k2, r_wake_1_k2, r_wake_2_k2, r_wake_3_k2, r_wake_4_k2, Gamma_wake, var_param, 0);
+    
+    %%[*] è‡’lˆÈ~‚Å‚Í•ÏŒ`‚³‚¹‚È‚¢ (Œã‰•”‚Ìwake‚ÌØ‚èŽæ‚è‚É‚æ‚é•Ï“®‚Ì–hŽ~)
+    if ~isempty( idx_R_wake_x_threshold_no_change)
+        
+        idx = [ idx_R_wake_x_threshold_no_change:N_wake_trail ...
+                N_wake_trail+idx_R_wake_x_threshold_no_change_31:size( r_wake_23, 1)];
+        
+        V_gamma_wake_k3(idx,:) = 0;
+        V_gamma_w_wake_k3(idx,:) = 0;
+    end
+             
+    %%[*] •½”ÂŒã‰ + Wakeƒpƒlƒ‹ƒm[ƒh‚Å‚Ì—¬‘¬ [m/s]
+    V_wake_2_k3 = V_gamma_wake_k3(1:N_wake_trail,:) + V_gamma_w_wake_k3(1:N_wake_trail,:) + V_in_wake - dt_r_panel_vec_2_wake;
+    V_wake_31_k3 = V_gamma_wake_k3(N_wake_trail+1:end,:) + V_gamma_w_wake_k3(N_wake_trail+1:end,:) + V_in_wake(1:N_wake_trail/Ny,:) - dt_r_panel_vec_31_wake;
+         
+    
+    
+    %%[*] •½”ÂŒã‰ + Wakeƒpƒlƒ‹ƒm[ƒh [m]
+    r_wake_2 = old_r_wake_2 + V_wake_2_k3*d_t_wake;
+    r_wake_31 = old_r_wake_31 + V_wake_31_k3*d_t_wake;
+    
+    r_wake_3 = zeros(N_wake_trail,3);
+    r_wake_3(1:Ny:end,:) = r_wake_31;                                       %% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh‡B
+    r_wake_3(idx_r2,:) = r_wake_2(idx_r2-1,:);                              %% ‚»‚Ì‘¼‚ÌWakeƒm[ƒh‡B
+    r_wake_1 = [ r_panel_vec_2_end;
+                    r_wake_2_k2(1:end-Ny,:)];
+    r_wake_4 = [ r_panel_vec_3_end;
+                    r_wake_32(1:end-Ny,:)];        
+                
+                
+                
+                
+
+    h_r_wake(i_wake_time) = { [ r_wake_1;
+                                r_wake_2;
+                                r_wake_3;
+                                r_wake_4] }; 
+                            
+    %%[2-9-3] Wakeƒm[ƒhˆÚ—¬‘¬“x [-]
+%     dt_r_wake_2 = (V_wake_2_c + V_wake_2_p)/2;                            
+%     dt_r_wake_31 = (V_wake_31_c + V_wake_31_p)/2;
+    dt_r_wake_2 = V_wake_2_c;                            
+    dt_r_wake_31 = V_wake_31_c;
+    
+    dt_r_wake_3 = zeros(N_wake_trail,3);
+    dt_r_wake_3(1:Ny:end,:) = dt_r_wake_31;                                	%% Y=0 [m]‚É‚¨‚¯‚éWakeƒm[ƒh‡B‚ÌˆÚ—¬‘¬“x
+    dt_r_wake_3(idx_r2,:) = dt_r_wake_2(idx_r2-1,:);                      	%% ‚»‚Ì‘¼‚ÌWakeƒm[ƒh‡B‚ÌˆÚ—¬‘¬“x
+    dt_r_wake_1 = [ dt_r_panel_vec_2(i_trail,:);
+                    dt_r_wake_2(1:end-Ny,:)];
+    dt_r_wake_4 = [ dt_r_panel_vec_3(i_trail,:);
+                    dt_r_wake_3(1:end-Ny,:)];                           
+                            
+                            
+    h_Gamma_wake(i_wake_time) = { Gamma_wake };
+
+    h_r_end(:,:,i_wake_time) = [ r_panel_vec_31_end;
+                                 r_panel_vec_2_end];
+    h_V_wake_end(:,:,i_wake_time) = [ V_wake_31_c(1,:);
+                                      V_wake_2_c(1:Ny,:)];
+
+end
+
+
+
+
+%% Wake––’[íœ(ŒvŽZƒRƒXƒgíŒ¸)
+
+
+
+
+
+idx_R_wake_x_threshold = find( (r_wake_1(:,1) + r_wake_4(:,1))/2 > R_wake_x_threshold);     %% R_wake_x_threshold: Wake––’[ˆÊ’u‚Ìè‡’l [m]
+if ~isempty( idx_R_wake_x_threshold)
+    idx_R_wake_x_threshold = floor( idx_R_wake_x_threshold(1)/Ny)*Ny + 1;
+
+    r_wake_1(idx_R_wake_x_threshold:end,:) = [];
+    r_wake_2(idx_R_wake_x_threshold:end,:) = [];
+    r_wake_3(idx_R_wake_x_threshold:end,:) = [];
+    r_wake_4(idx_R_wake_x_threshold:end,:) = [];
+    
+    dt_r_wake_1(idx_R_wake_x_threshold:end,:) = [];
+    dt_r_wake_2(idx_R_wake_x_threshold:end,:) = [];
+    dt_r_wake_3(idx_R_wake_x_threshold:end,:) = [];
+    dt_r_wake_4(idx_R_wake_x_threshold:end,:) = [];
+
+    Gamma_wake(idx_R_wake_x_threshold:end) = [];
+end
+
+
+
+

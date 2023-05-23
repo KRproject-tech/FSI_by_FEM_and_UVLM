@@ -1,0 +1,122 @@
+%% 変数抽出
+X_vec = h_X_vec(:,i_time);
+q_vec = X_vec(1:N_q_all,1);
+dt_q_vec = X_vec(N_q_all+1:end,1);
+
+
+
+
+
+%% 時間発展 (Eulerの予測子修正子法)
+
+%%[*] 流体力ベクトル：[p] = p_lift + Mf1*dt^2_q + (Mf2_1*(dt_r - Vin - Vwake)^T*dt_ni + Mf2_2) 
+
+%%[0] 流体力の線形補間 (Mf2_2)
+Qf_p_global_t = (Qf_p_global - old_Qf_p_global)*(time - time_fluid)/d_t_wake + Qf_p_global;
+h_Qf_p_global_t(:,i_time) = Qf_p_global_t;
+
+%%[1] ( -(τx*dxΓ + τy*dyΓ)*dt_rc ) 
+Qf_p_lift2_global_t = (Qf_p_lift2_mat_global - old_Qf_p_lift2_mat_global)*(time - time_fluid)/d_t_wake + Qf_p_lift2_mat_global;
+
+
+%%[2] 付加質量マトリックスの線形補間 (Mf1)
+Qf_p_mat_global_t = (Qf_p_mat_global - old_Qf_p_mat_global)*(time - time_fluid)/d_t_wake + Qf_p_mat_global;
+
+%%[3] 流体力の線形補間 (Mf2_1)
+Qf_p_mat0_global_t = (Qf_p_mat0_global - old_Qf_p_mat0_global)*(time - time_fluid)/d_t_wake + Qf_p_mat0_global;
+
+
+
+
+%% 流体力計算
+%%[*] 単位法線ベクトル算出
+generate_dt_n_vec;
+
+
+%%[*] コロケーション点の変位速度
+
+rc_vec = Sc_mat_col_global*q_vec;
+rc_vec = reshape( rc_vec, 3, []).';
+
+dt_rc_vec = Sc_mat_col_global*dt_q_vec;
+dt_rc_vec = reshape( dt_rc_vec, 3, []).';
+
+
+
+
+
+if ~exist( 'Gamma_wake', 'var')
+    
+   V_wake_plate = 0; 
+   dt_Amat2_Gamma = 0;
+   dt_Amat1 = 0;
+   Gamma = 0;
+end
+
+
+
+Qf_p_mat0_global_t_n = Qf_p_mat0_global_t*( sum( (dt_rc_vec - V_in - V_wake_plate - dt_Amat2_Gamma).*dt_n_vec_i, 2) - dt_Amat1*Gamma);
+Qf_p_lift2_global_t_n = Qf_p_lift2_global_t*reshape( dt_rc_vec.', [], 1); 
+
+%% 予測子計算 (新しい時刻の状態を求める)
+
+
+%%[0] 粘弾性ベクトルの組立 Qe^(n)
+flag_output = 1;                                                            %% 剛性行列算出の有効化
+generate_stiff_matrices;
+
+Qk_global_n = Qk_global;
+Qe_global_n = Qe_global;
+dq_Qe_global_n = dq_Qe_global;
+Qd_global_n = Qd_global;
+Qd_theta_global_n = Qd_theta_global;
+
+[ X_vec_p, out1] = new_X_func_FAST( X_vec, M_global - Qf_p_mat_global_t, ...
+                                    Qf_global + Qf_time_global*q_in_norm( time) + Qf_p_global_t + Qf_p_mat0_global_t_n + Qf_p_lift2_global_t_n,...
+                                    dq_Qe_global_n, Qe_global_n + Qk_global_n, Qd_global_n + Qd_theta_global_n, var_param, 0, []);
+
+                                
+
+
+%% 修正子計算 (新しい時刻の剛性力 Qe^(n+1) の元で解く)
+
+q_vec = X_vec_p(1:N_q_all,1);
+dt_q_vec = X_vec_p(N_q_all+1:end,1);
+
+
+%%[*] 単位法線ベクトル算出
+generate_dt_n_vec;
+
+
+%%[*] コロケーション点の変位速度
+
+dt_rc_vec = Sc_mat_col_global*dt_q_vec;
+dt_rc_vec = reshape( dt_rc_vec, 3, []).';
+
+
+Qf_p_mat0_global_t_np1 = Qf_p_mat0_global_t*( sum( (dt_rc_vec - V_in - V_wake_plate - dt_Amat2_Gamma).*dt_n_vec_i, 2) - dt_Amat1*Gamma);
+Qf_p_lift2_global_t_np1 = Qf_p_lift2_global_t*reshape( dt_rc_vec.', [], 1); 
+
+
+
+
+%%[0] 粘弾性ベクトルの組立 Qe^(n+1)
+flag_output = 0;                                                            %% 剛性行列算出の無効化
+generate_stiff_matrices;
+Qk_global_np1 = Qk_global;
+Qd_theta_global_np1 = Qd_theta_global;
+
+%%[*] Qe(q(n+1)) = Qe(q(n)) + Δt*dq_Qe(q(n))*dt_q(n+1)
+new_X_vec = new_X_func_FAST( X_vec, M_global - Qf_p_mat_global_t, ...
+                             Qf_global + Qf_time_global*q_in_norm( time) + Qf_p_global_t + (Qf_p_mat0_global_t_n + Qf_p_mat0_global_t_np1)/2 + (Qf_p_lift2_global_t_n + Qf_p_lift2_global_t_np1)/2, ...
+                             dq_Qe_global_n, Qe_global_n + (Qk_global_n + Qk_global_np1)/2, Qd_global_n + Qd_theta_global_n, var_param, 1, out1);
+
+h_X_vec(:,i_time+1) = new_X_vec;                                            %% (Qe^(n)+Qe^(n+1))/2の元で解いた X(n+1) 
+
+
+%% 発散した時は解析を停止
+if sum( isnan( X_vec))
+
+    warndlg( 'Divergence!!') 
+    break;
+end
