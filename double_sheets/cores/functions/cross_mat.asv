@@ -1,0 +1,9 @@
+%% ŠOÏ
+function out = cross_mat( a, b)
+
+
+i_vec = 
+
+out = a([2 3 1],:).*b([3 1 2],:) - a([3 1 2],:).*b([2 3 1],:);
+
+end
