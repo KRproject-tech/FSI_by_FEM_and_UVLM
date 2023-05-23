@@ -16,7 +16,7 @@ C_theta_a = 0*1e-2;                                  	%% Cθ^* := Cθ/(ρf*L^3*W
 J_a = 0;                                                %% J^* := J/(ρf*L^4*W) [-]
 
 dt_rz_end = 0*3e-1;                                     %% 末端(X=1 [-])での無次元化初期速度 [-] (X方向に比例的に分布) ---------------- 初期速度を与えるとインパルス的な応答になる．
-q_in_norm = @( time)( 0.1*sin( pi*time/0.2).*( time < 0.2 ) );              %% Initial disturbance
+q_in_norm = @( time)( 0.5*sin( pi*time/0.2).*( time < 0.2 ) );              %% Initial disturbance
 q_in_vec = [ 0 0 1].';                                                      %% Force direction [-]  
 
 mode_num = 10;                                          %% 計算モード数
