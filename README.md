@@ -93,7 +93,7 @@ Push the “plot” button.
     
 __[Step 5] View plotted results__
 
-Plotted results (figures and movie) by [Step 4] are in "./XXXX/save" directory.
+Results (figures and movie) plotted by [Step 4] are in "./XXXX/save" directory.
     
 
 ## Parameters
