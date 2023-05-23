@@ -10,7 +10,7 @@ speed_check = 0;                                        %% 1:ON, 0:OFF [-]
 alpha_v = 0.5;                                          %% 1:implicit solver，0:explicit solver [-]
 
 Ma = 1.0;                                              %% Mass ratio [-]
-Ua = 8;                                               %% Nondimensional flow velocity [-]
+Ua = 25;                                               %% Nondimensional flow velocity [-]
 theta_a = 0*1e-1;                                      %% Nondimensional material damping [-]: σ = D(ε + θ^* dtε), θ^* := (θ [1/s])*(U_in/L [s])
 C_theta_a = 0*1e-2;                                  	%% Cθ^* := Cθ/(ρf*L^3*W*Uin) [-]
 J_a = 0;                                                %% J^* := J/(ρf*L^4*W) [-]
@@ -40,14 +40,14 @@ mu_m = 1/Ma;                                    %% 無次元化平板密度 [-]
 nu = 0.3;                                       %% ポアソン比 [-]
 
 Length = 1.0;                                   %% (Nondimensional) length [-]
-Width = 2.00*Length;                           	%% aspect ratio [-]
+Width = 1.00*Length;                           	%% aspect ratio [-]
 thick = 1.0e-3*Length;                          %% thickness [-]
 Aa = Width*thick;                               %% 断面積 [-]
 Ia = Width*thick^3/12;                          %% 断面二次モーメント [-]
 eta_m = mu_m/Ua^2;                              %% 無次元化曲げ剛性 [-]
 zeta_m = Aa/Ia*eta_m*Length^2;                	%% 無次元化伸び剛性 [-]
-Nx = 8;                                        %% x方向要素数 [-]
-Ny = 14;                                         %% y方向要素数 [-]
+Nx = 16;                                        %% x方向要素数 [-]
+Ny = 8;                                         %% y方向要素数 [-]
 n_LW = 1.0;                                     %% 不等間隔メッシュパラメータ [-]
 N_gauss = 5;                                    %% Gauss-Legendre求積の次数 [-]
 
@@ -94,9 +94,9 @@ dt_wake_per_dt = ceil( dt_wake/d_t);                    %% 流体ソルバー刻み時間/
 %% 平板境界条件
 
 %%[0] 0値代入
-node_r_0 = [ 1:Ny+1:(Nx+1)*(Ny+1)];                                       %% Node number giving the displacement constraint [-]
-node_dxr_0 = [ 1:Ny+1:(Nx+1)*(Ny+1)];                                     %% Node number giving x-directional gradient constraint [-]
-node_dyr_0 = [ 1:Ny+1:(Nx+1)*(Ny+1)];                                     %% Node number giving y-directional gradient constraint [-]
+node_r_0 = [ 1:Ny+1];                                       %% Node number giving the displacement constraint [-]
+node_dxr_0 = [ 1:Ny+1];                                      %% Node number giving x-directional gradient constraint [-]
+node_dyr_0 = [ 1:Ny+1];                                     %% Node number giving y-directional gradient constraint [-]
 
 %%[1] 同一値に拘束 (回転自由の剛体棒に柔軟シートが固定されている場合)
 node_dxr_theta_c = [ ];                             %% x方向勾配を同一に拘束するノード番号 [-]
