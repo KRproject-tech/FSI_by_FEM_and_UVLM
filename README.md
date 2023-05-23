@@ -22,7 +22,7 @@ Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A fl
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
 
-The following ToolBoxes in “./ ToolBoxes/” are required,
+The following ToolBoxes in “./XXXX/ToolBoxes/” (XXXX is double_sheets and single_sheet) are required,
 
 __For numerical analysis:__
 *	__“Meshing a plate using four noded elements”__ by KSSV:  
@@ -94,7 +94,7 @@ Push the “plot” button.
 
 ## Parameters
 
-Analytical condisions are in "./save/param_setting.m"
+Analytical condisions are in "./XXXX/save/param_setting.m"
 
 ````
 %% Analytical conditions
