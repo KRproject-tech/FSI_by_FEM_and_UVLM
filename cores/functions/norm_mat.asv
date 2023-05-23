@@ -1,8 +1,0 @@
-function out = norm_mat( a)
-
-out0 = sqrt( a(:,1:3:end).^2 + a(:,2:3:end).^2 + a(:,3:3:end).^2 );
-
-
-out = kron( out0, ones(1,3));    
-
-end
