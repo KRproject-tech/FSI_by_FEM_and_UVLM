@@ -19,6 +19,34 @@ source code for Matlab (Windows): FSI analysis for the flapping sheet (This code
 ## Overview
 Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^4]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity.
 
+    
+## Directory    
+<pre>
+├─double_sheets
+│  ├─cores
+│  │  ├─functions
+│  │  │  ├─fluid
+│  │  │  └─structure
+│  │  └─solver
+│  │      ├─fluid
+│  │      └─structure
+│  ├─save
+│  │  └─fig
+│  │      └─modes
+│  └─ToolBoxes
+└─single_sheet
+    ├─functions
+    │  ├─fluid
+    │  └─structure
+    ├─save
+    │  └─fig
+    │      └─modes
+    ├─solver
+    │  ├─fluid
+    │  └─structure
+    └─ToolBoxes
+</pre>
+    
 ## Preparation before analysis
 __[Step 1] Install the ToolBoxes__
 
