@@ -232,7 +232,7 @@ __Comparisons of snapshot of a flapping sheet under various $U^*$ between numeri
 
 ## Demonstration movie
 
-https://youtu.be/9FOBByPBSeA
+[![](https://img.youtube.com/vi/9FOBByPBSeA/0.jpg)](https://youtu.be/9FOBByPBSeA)
 
 ### References  
 [^1]: Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
