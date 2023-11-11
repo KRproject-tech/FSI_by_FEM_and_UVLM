@@ -21,9 +21,9 @@ Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A fl
 
 Strong coupled FSI can achieve more robust numerical analysis under large fluid density than a loose coupling scheme.
 
-[![](https://img.youtube.com/vi/heaMrV6I3RQ?si=OxCB95YIN_0FpdtB/0.jpg)](https://youtu.be/heaMrV6I3RQ?si=OxCB95YIN_0FpdtB)
+[![](https://img.youtube.com/vi/9FOBByPBSeA/0.jpg)](https://youtu.be/heaMrV6I3RQ?si=OxCB95YIN_0FpdtB)
 
-    
+   
 ## Directory    
 <pre>
 ├─double_sheets
