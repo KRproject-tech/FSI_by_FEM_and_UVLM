@@ -63,6 +63,15 @@ https://doi.org/10.1142/S0219455422501632
 https://doi.org/10.1016/j.jsv.2020.115359
 
 ````
+@article{YAMANO2020115359,
+    title = {Influence of boundary conditions on a flutter-mill},
+    journal = {Journal of Sound and Vibration},
+    volume = {478},
+    pages = {115359},
+    year = {2020},
+    doi = {https://doi.org/10.1016/j.jsv.2020.115359},
+    author = {A. Yamano and A. Shintani and T. Ito and C. Nakagawa and H. Ijima}
+}
 ````
 
 ## Directory    
