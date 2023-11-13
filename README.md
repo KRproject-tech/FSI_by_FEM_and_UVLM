@@ -32,14 +32,14 @@ https://doi.org/10.1299/mej.20-00459
 
 ````
 @article{Akio YAMANO202120-00459,
-  title={Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet},
-  author={Akio YAMANO and Hiroshi IJIMA and Atsuhiko SHINTANI and Chihiro NAKAGAWA and Tomohiro ITO},
-  journal={Mechanical Engineering Journal},
-  volume={8},
-  number={1},
-  pages={20-00459-20-00459},
-  year={2021},
-  doi={10.1299/mej.20-00459}
+    title={Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet},
+    author={Akio YAMANO and Hiroshi IJIMA and Atsuhiko SHINTANI and Chihiro NAKAGAWA and Tomohiro ITO},
+    journal={Mechanical Engineering Journal},
+    volume={8},
+    number={1},
+    pages={20-00459-20-00459},
+    year={2021},
+    doi={10.1299/mej.20-00459}
 }
 ````
 
@@ -48,14 +48,14 @@ https://doi.org/10.1142/S0219455422501632
 
 ````
 @article{doi:10.1142/S0219455422501632,
-        author = {Yamano, Akio and Chiba, Masakatsu},
-        title = {Flow-Induced Vibration and Energy-Harvesting Performance Analysis for Parallelized Two Flutter-Mills Considering Span-Wise Plate Deformation with Geometrical Nonlinearity and Three-Dimensional Flow},
-        journal = {International Journal of Structural Stability and Dynamics},
-        volume = {22},
-        number = {14},
-        pages = {2250163},
-        year = {2022},
-        doi = {10.1142/S0219455422501632}
+    author = {Yamano, Akio and Chiba, Masakatsu},
+    title = {Flow-Induced Vibration and Energy-Harvesting Performance Analysis for Parallelized Two Flutter-Mills Considering Span-Wise Plate Deformation with Geometrical Nonlinearity and Three-Dimensional Flow},
+    journal = {International Journal of Structural Stability and Dynamics},
+    volume = {22},
+    number = {14},
+    pages = {2250163},
+    year = {2022},
+    doi = {10.1142/S0219455422501632}
 }
 ````
 
