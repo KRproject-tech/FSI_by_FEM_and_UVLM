@@ -31,6 +31,16 @@ If you use this work in an academic context, please cite the following publicati
 https://doi.org/10.1299/mej.20-00459
 
 ````
+@article{Akio YAMANO202120-00459,
+  title={Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet},
+  author={Akio YAMANO and Hiroshi IJIMA and Atsuhiko SHINTANI and Chihiro NAKAGAWA and Tomohiro ITO},
+  journal={Mechanical Engineering Journal},
+  volume={8},
+  number={1},
+  pages={20-00459-20-00459},
+  year={2021},
+  doi={10.1299/mej.20-00459}
+}
 ````
 
 * Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).  
