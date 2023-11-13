@@ -37,6 +37,16 @@ https://doi.org/10.1299/mej.20-00459
 https://doi.org/10.1142/S0219455422501632
 
 ````
+@article{doi:10.1142/S0219455422501632,
+        author = {Yamano, Akio and Chiba, Masakatsu},
+        title = {Flow-Induced Vibration and Energy-Harvesting Performance Analysis for Parallelized Two Flutter-Mills Considering Span-Wise Plate Deformation with Geometrical Nonlinearity and Three-Dimensional Flow},
+        journal = {International Journal of Structural Stability and Dynamics},
+        volume = {22},
+        number = {14},
+        pages = {2250163},
+        year = {2022},
+        doi = {10.1142/S0219455422501632}
+}
 ````
 
 * Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).  
