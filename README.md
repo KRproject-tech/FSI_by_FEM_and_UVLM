@@ -18,14 +18,14 @@ source code for Matlab (Windows): FSI analysis for the flapping sheet under the 
 
 ## Overview
 This is the numerical simulation code for a limit cycle oscillation of a rectangular sheet flapping in a three-dimensional flow. 
-Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^4]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity. Robust FSI analysis under a large mass ratio is achieved by the strong coupling between the fluid solver and the structure solver by introducing the explicit added mass calculation. 
+Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^6]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^5]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity. Robust FSI analysis under a large mass ratio is achieved by the strong coupling between the fluid solver and the structure solver by introducing the explicit added mass calculation. 
 
 Strong coupled FSI can achieve more robust numerical analysis under large fluid density than a loose coupling scheme.
 
 [![](https://img.youtube.com/vi/heaMrV6I3RQ/0.jpg)](https://www.youtube.com/watch?v=heaMrV6I3RQ)
 
 
-Numerical instability under large fluid density with a loose coupling scheme is caused by added mass term (artificial added mass instability).
+Numerical instability under large fluid density with a loose coupling scheme is caused by added mass term (artificial added mass instability [^4]).
 To avoid this problem, the added mass term is included in the structure model [^1][^2][^3]. 
 
 ![図1](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/68207493-a409-40a1-8285-5c37013cc47c)
@@ -291,7 +291,7 @@ __Wake behind sheets__
 __Snapshot of two flapping sheets__
 
 ![comparison](https://user-images.githubusercontent.com/114337358/233918767-5ddeca5e-bd84-4662-b5f2-995c8b75cd7e.png)
-__Comparisons of snapshot of a flapping sheet under various $U^*$ between numerical results (above) [^3] and experimental results (below) [^6]__
+__Comparisons of snapshot of a flapping sheet under various $U^*$ between numerical results (above) [^3] and experimental results (below) [^7]__
 
 
 ## Demonstration movie
@@ -308,11 +308,13 @@ https://doi.org/10.1142/S0219455422501632
 [^3]: Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).  
 https://doi.org/10.1016/j.jsv.2020.115359
 
-[^4]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
+[^4]: C. Förster, W. A. Wall, E. Ramm, Artificial added mass instabilities in sequential staggered coupling of nonlinear structures and incompressible viscous flows, Computer Methods in Applied Mechanics and Engineering, Vol. 196, No. 7, 2007.
 
-[^5]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+[^5]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
 
-[^6]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
+[^6]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+
+[^7]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
 
 
 
