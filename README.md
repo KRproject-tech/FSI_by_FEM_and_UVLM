@@ -17,6 +17,7 @@ __Strong-coupled Fluid-Structure Interaction Analysis (FSI) Using FEM and UVLM t
 source code for Matlab (Windows): FSI analysis for the flapping sheet under the post-flutter (This code is validated with MATLAB R2007b or later versions)__
 
 ## Overview
+This is the numerical simulation code for a limit cycle oscillation of a rectangular sheet flapping in a three-dimensional flow. 
 Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^5]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^4]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity. Robust FSI analysis under a large mass ratio is achieved by the strong coupling between the fluid solver and the structure solver by introducing the explicit added mass calculation. 
 
 Strong coupled FSI can achieve more robust numerical analysis under large fluid density than a loose coupling scheme.
