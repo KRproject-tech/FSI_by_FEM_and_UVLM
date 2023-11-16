@@ -30,6 +30,8 @@ To avoid this problem, the added mass term is included in the structure model [^
 
 ![図1](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/5ab3c62b-8fb6-4122-9b7c-ba3ba09940f2)
 
+![図2](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/dcb49d14-c57e-4869-b5fc-34c64cf79693)
+
 
 ## Publications
 
