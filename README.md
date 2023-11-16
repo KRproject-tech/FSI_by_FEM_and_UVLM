@@ -28,6 +28,8 @@ Strong coupled FSI can achieve more robust numerical analysis under large fluid 
 Numerical instability under large fluid density with a loose coupling scheme is caused by added mass term (artificial added mass instability).
 To avoid this problem, the added mass term is included in the structure model [^1][^2][^3]. 
 
+![図1](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/5ab3c62b-8fb6-4122-9b7c-ba3ba09940f2)
+
 
 ## Publications
 
