@@ -307,6 +307,12 @@ __Comparisons of snapshot of a flapping sheet under various $U^*$ between numeri
 
 [![](https://img.youtube.com/vi/9FOBByPBSeA/0.jpg)](https://youtu.be/9FOBByPBSeA)
 
+
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM)
+
+
+
 ### References  
 [^1]: Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
 https://doi.org/10.1299/mej.20-00459
@@ -326,6 +332,4 @@ https://doi.org/10.1016/j.jsv.2020.115359
 [^7]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
 
 
-## Stargazers over time
-[![Stargazers over time](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM)
 
