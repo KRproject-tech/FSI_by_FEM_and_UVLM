@@ -326,4 +326,6 @@ https://doi.org/10.1016/j.jsv.2020.115359
 [^7]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
 
 
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM)
 
