@@ -80,7 +80,10 @@ i_ax = i_ax + 1;
 %%[1-0] plot behavior
 h_fig(2) = figure(2);
 % set( h_fig(2), 'Position', [100 100 1200 500], 'render', 'zbuffer', 'doublebuffer','on')
-figure4movie( h_fig(2), [100 100 1500 600])
+figure4movie( h_fig(2), [100 100 1200 500]);
+set( h_fig(2), 'render', 'zbuffer', 'doublebuffer','on')
+
+
 h_ax(i_ax) = axes( 'Parent', h_fig(2), 'FontSize', 15);
 
 
@@ -90,14 +93,14 @@ h_txt(1) = text( -Length/2, Width, 0, [ 'Time = ', num2str( 0, '%0.3f'), ' [s]']
 
 h_plot(1) = patch( 0, 0, 0, 'r', 'Parent', h_ax(i_ax));
 hold( h_ax(i_ax), 'on')
-if panel_node_plot == 1;
+if panel_node_plot == 1
     h_plot(2) = plot3( h_ax(i_ax), 0, 0, 0, '.');                          	%% パネルノード点 [m]
     h_plot(3) = plot3( h_ax(i_ax),  0, 0, 0, '*');                       	%% コロケーション点 [m]
     h_plot(4) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'r');             	%% 流体力ベクトル [Pa]
 end
 h_plot(5) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'g');               	%% 表面流速ベクトル [m/s]
 h_plot(6) = patch( 0, 0, 0, 0, 'Parent', h_ax(i_ax), 'LineStyle', 'none');	%% Wake
-if pressure_interp_plot == 1;
+if pressure_interp_plot == 1
     h_plot(7) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'b');             	%% 補間流体力ベクトル [Pa]
 end
 all_Gamma_wake = cell2mat( reshape( h_Gamma_wake, [], 1));
@@ -125,7 +128,7 @@ i_ax = i_ax + 1;
 
 %%[1-1] Snapshots
 h_fig(3) = figure(3);
-set( h_fig(3), 'Position', [700 600 600 400])
+set( h_fig(3), 'Position', [700 600 600 400], 'render', 'zbuffer')
 h_ax(i_ax) = axes( 'Parent', h_fig(3), 'FontSize', 15);
 
 light
@@ -160,7 +163,7 @@ time_m = 0:d_t:time;
 
 
 %%[1-2] 補間圧力ベクトルの時刻歴の算出
-if pressure_interp_plot == 1;
+if pressure_interp_plot == 1
     
     lgth_time = length( time_m(time_m <= Snapshot_tmax))*ceil(d_t/dt_wake_per_dt);
     
@@ -293,14 +296,14 @@ for time = time_m(time_m <= Snapshot_tmax)
         %%[1-2-2] 流体力ベクトル [Pa]: f = -dp*n*dS
         n_vec_i = ( h_dp_vec(:,i_wake_time)*ones(1,3) ).*h_n_vec(:,:,i_wake_time);
 
-        if panel_node_plot == 1;
+        if panel_node_plot == 1
             set( h_plot(2), 'XData', x_node(:), 'YData', y_node(:), 'ZData', z_node(:));
             set( h_plot(3), 'XData', r_col(:,1), 'YData', r_col(:,2), 'ZData', r_col(:,3));
             set( h_plot(4), 'XData', r_col(:,1), 'YData', r_col(:,2), 'ZData', r_col(:,3), 'UData', n_vec_i(:,1), 'VData', n_vec_i(:,2), 'WData', n_vec_i(:,3));
         end
         
         %% 補間流体力ベクトル [Pa]
-        if pressure_interp_plot == 1;           
+        if pressure_interp_plot == 1          
             
             set( h_plot(7), 'XData', h_r_vec_interp(1:3:end,i_wake_time), 'YData', h_r_vec_interp(2:3:end,i_wake_time), 'ZData', h_r_vec_interp(3:3:end,i_wake_time),...
                             'UData', h_dp_ni_interp(1:3:end,i_wake_time), 'VData', h_dp_ni_interp(2:3:end,i_wake_time), 'WData', h_dp_ni_interp(3:3:end,i_wake_time));             	
@@ -432,7 +435,7 @@ X0_pos = (-Length + eps)*ones(length( Z0_pos),1);
 
 tri = delaunay( r_xyz(:,1), r_xyz(:,3));
 FlowP=TriStream( tri, r_xyz(:,1), r_xyz(:,3), V_xyz(:,1), V_xyz(:,3), X0_pos, Z0_pos);
-h_plot_streamline = ptristream( FlowP, 0.5*Width, 'b');
+h_plot_streamline = PlotTriStream( FlowP, 0.5*Width, 'b');
 set( h_plot_streamline, 'LineWidth', 1)
 
 
@@ -488,13 +491,67 @@ plot( h_ax(i_ax), time_m(1:end-1), h_W_dk(1:length( time_m)-1), 'g')
 plot( h_ax(i_ax), time_m(1:end-1), h_W_dm(1:length( time_m)-1), 'k')
 plot( h_ax(i_ax), time_m(1:end-1), h_W_d_theta(1:length( time_m)-1), 'm')
 
-legend( '{\itW_{total}}', '{\itW_{f}}', '{\itW_{dk}}', '{\itW_{dm}}', '{\itW_{d\theta}}')
+legend( '{d_{\itt}\itE_{total}}', '{\itW_{f}}', '{\itW_{dk}}', '{\itW_{dm}}', '{\itW_{d\theta}}')
 
 
 
 
 i_ax = i_ax + 1;
 
+
+
+
+%% スパン方向中央変位のスナップショット
+
+data.N_element = N_element;
+data.Nx = Nx;
+data.Ny = Ny;
+data.N_qi = N_qi;
+data.N_q = N_q;
+data.nodes = nodes;
+data.h_X_vec = h_X_vec;
+
+[ X_center_disp, Z_center_disp] = r_center_disp( data);    
+
+h_fig(6) = figure(6);
+set( h_fig(6), 'Position', [100 100 400 600])
+
+h_ax(i_ax) = axes( 'Parent', h_fig(6));
+
+plot( h_ax(i_ax), X_center_disp(:,end/2:100:end), Z_center_disp(:,end/2:100:end), 'b-', 'LineWidth', 0.2)
+
+set( h_ax(i_ax), 'FontName', 'Times New Roman', 'FontSize', 12)
+axis( h_ax(i_ax), 'equal')
+xlabel( h_ax(i_ax), '{\itX}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+ylabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+xlim( h_ax(i_ax), [ 0 1])
+ylim( h_ax(i_ax), [ -0.5 0.5])
+
+
+
+
+i_ax = i_ax + 1;
+
+%% スパン方向中央の自由端変位の時刻歴
+
+
+h_fig(7) = figure(7);
+set( h_fig(7), 'Position', [100 100 1200 500])
+
+h_ax(i_ax) = axes( 'Parent', h_fig(7));
+
+plot( h_ax(i_ax), time_m, Z_center_disp(end,:), 'b-', 'LineWidth', 1)
+
+set( h_ax(i_ax), 'FontName', 'Times New Roman', 'FontSize', 12)
+xlabel( h_ax(i_ax), 'Nondimensional time', 'FontName', 'Times New Roman', 'FontSize', 15)
+ylabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+xlim( h_ax(i_ax), time_m( [ 1 end]))
+ylim( h_ax(i_ax), [ -0.5 0.5])
+
+
+
+
+i_ax = i_ax + 1;
 
 
 %% modes
@@ -518,13 +575,13 @@ if exist( 'mode_num', 'var')
         end
       
         %%[2] modeごとにplot
-        i_fig = 5+i_mode;
+        i_fig = 7+i_mode;
         
         
        
         
         h_fig_mode(i_mode) = figure(i_fig);
-        set( h_fig_mode(i_mode), 'Position', [1300 600 600 400])
+        set( h_fig_mode(i_mode), 'Position', [1300 600 600 400], 'render', 'zbuffer')
         h_ax(i_ax) = axes( 'Parent', h_fig_mode(i_mode), 'FontSize', 15);
        
         patch( X, Y, Z, 'r', 'Parent', h_ax(i_ax));
@@ -553,14 +610,24 @@ end
 
 %% save
 
-fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate'};
+fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate', 'snapshot_mid_span', 'displacement_mid_span'};
 fig_name_mode = 'mode';
 
 for ii = 1:length( h_fig)
     saveas( h_fig(ii), [ './save/fig/', fig_name{ii}, '.fig']) 
+    
+    set( h_fig(ii), 'PaperPositionMode', 'auto')
+    fig_pos = get( h_fig(ii), 'PaperPosition');
+    set( h_fig(ii), 'Papersize', [fig_pos(3) fig_pos(4)]);
+    saveas( h_fig(ii), [ './save/fig/', fig_name{ii}, '.pdf']) 
 end
 for ii = 1:length( h_fig_mode)
     saveas( h_fig_mode(ii), [ './save/fig/modes/', fig_name_mode, '_', num2str( ii, '%d'), '.fig']) 
+    
+    set( h_fig_mode(ii), 'PaperPositionMode', 'auto')
+    fig_pos = get( h_fig_mode(ii), 'PaperPosition');
+    set( h_fig_mode(ii), 'Papersize', [fig_pos(3) fig_pos(4)]);
+    saveas( h_fig_mode(ii), [ './save/fig/modes/', fig_name_mode, '_', num2str( ii, '%d'), '.pdf']) 
 end
 
 %% create movie
@@ -577,6 +644,14 @@ elseif strcmp( 'wmv', movie_format)
     
     mmwrite( './save/data.wmv', video)
 end
+
+
+
+%% Computing time
+
+disp( [ 'Computing time of structure: ', num2str( measure_time_struct, '%0.2f'), ' [s]'])
+disp( [ 'Computing time of fluid: ', num2str( measure_time_fluid, '%0.2f'), ' [s]'])
+
 
 %% Finish
 warndlg( 'Finish')
