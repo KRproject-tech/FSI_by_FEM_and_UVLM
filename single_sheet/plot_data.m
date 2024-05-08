@@ -660,7 +660,7 @@ if exist( 'mode_num', 'var')
         end
       
         %%[2] modeごとにplot
-        i_fig = 7+i_mode;
+        i_fig = 10+i_mode;
         
         
        
