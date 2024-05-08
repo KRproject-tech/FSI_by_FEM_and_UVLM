@@ -732,12 +732,6 @@ end
 
 
 
-%% Computing time
-
-disp( [ 'Computing time of structure: ', num2str( measure_time_struct, '%0.2f'), ' [s]'])
-disp( [ 'Computing time of fluid: ', num2str( measure_time_fluid, '%0.2f'), ' [s]'])
-
-
 %% Finish
 warndlg( 'Finish')
 
