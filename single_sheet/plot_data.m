@@ -540,7 +540,7 @@ set( h_fig(7), 'Position', [100 100 1200 500])
 
 h_ax(i_ax) = axes( 'Parent', h_fig(7));
 
-plot( h_ax(i_ax), time_m, Z_center_disp(end,:), 'b-', 'LineWidth', 1)
+plot( h_ax(i_ax), time_m, Z_center_disp(end,1:length( time_m)), 'b-', 'LineWidth', 1)
 
 set( h_ax(i_ax), 'FontName', 'Times New Roman', 'FontSize', 12)
 xlabel( h_ax(i_ax), 'Nondimensional time', 'FontName', 'Times New Roman', 'FontSize', 15)
@@ -566,7 +566,7 @@ set( h_fig(8), 'Position', [100 100 500 500])
 
 h_ax(i_ax) = axes( 'Parent', h_fig(8));
 
-plot( h_ax(i_ax), Z_center_disp(end,:), Z_center_vel(end,:), 'b-', 'LineWidth', 1)
+plot( h_ax(i_ax), Z_center_disp(end,1:length( time_m)), Z_center_vel(end,1:length( time_m)), 'b-', 'LineWidth', 1)
 
 set( h_ax(i_ax), 'FontName', 'Times New Roman', 'FontSize', 12)
 xlabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
@@ -610,7 +610,7 @@ ylim( h_ax(i_ax), [-1.5*Length 1.5*Length])
 xlabel( h_ax(i_ax), '{\itX}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
 ylabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
 
-plot( h_ax(i_ax), X_center_disp(:,end), Z_center_disp(:,end), 'b-', 'LineWidth', 4)
+plot( h_ax(i_ax), X_center_disp(:,length( time_m)), Z_center_disp(:,length( time_m)), 'b-', 'LineWidth', 4)
 
 
 
@@ -632,7 +632,7 @@ ylim( h_ax(i_ax), [-1.5*Length 1.5*Length])
 xlabel( h_ax(i_ax), '{\itX}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
 ylabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
 
-plot( h_ax(i_ax), X_center_disp(:,end), Z_center_disp(:,end), 'b-', 'LineWidth', 4)
+plot( h_ax(i_ax), X_center_disp(:,length( time_m)), Z_center_disp(:,length( time_m)), 'b-', 'LineWidth', 4)
 
 
 
@@ -695,7 +695,7 @@ end
 
 %% save
 
-fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate', 'snapshot_mid_span', 'displacement_mid_span', 'u_distribution', 'v_distribution'};
+fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate', 'snapshot_mid_span', 'displacement_mid_span', 'disp_vel_mid_span_phase_plane', 'u_distribution', 'v_distribution'};
 fig_name_mode = 'mode';
 
 for ii = 1:length( h_fig)
