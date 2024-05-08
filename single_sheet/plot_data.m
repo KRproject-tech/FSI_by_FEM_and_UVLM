@@ -94,14 +94,14 @@ h_txt(1) = text( -Length/2, Width, 0, [ 'Time = ', num2str( 0, '%0.3f'), ' [s]']
 h_plot(1) = patch( 0, 0, 0, 'r', 'Parent', h_ax(i_ax));
 hold( h_ax(i_ax), 'on')
 if panel_node_plot == 1
-    h_plot(2) = plot3( h_ax(i_ax), 0, 0, 0, '.');                          	%% ƒpƒlƒ‹ƒm[ƒh“_ [m]
-    h_plot(3) = plot3( h_ax(i_ax),  0, 0, 0, '*');                       	%% ƒRƒƒP[ƒVƒ‡ƒ““_ [m]
-    h_plot(4) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'r');             	%% —¬‘Ì—ÍƒxƒNƒgƒ‹ [Pa]
+    h_plot(2) = plot3( h_ax(i_ax), 0, 0, 0, '.');                          	%% ãƒ‘ãƒãƒ«ãƒãƒ¼ãƒ‰ç‚¹ [m]
+    h_plot(3) = plot3( h_ax(i_ax),  0, 0, 0, '*');                       	%% ã‚³ãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç‚¹ [m]
+    h_plot(4) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'r');             	%% æµä½“åŠ›ãƒ™ã‚¯ãƒˆãƒ« [Pa]
 end
-h_plot(5) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'g');               	%% •\–Ê—¬‘¬ƒxƒNƒgƒ‹ [m/s]
+h_plot(5) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'g');               	%% è¡¨é¢æµé€Ÿãƒ™ã‚¯ãƒˆãƒ« [m/s]
 h_plot(6) = patch( 0, 0, 0, 0, 'Parent', h_ax(i_ax), 'LineStyle', 'none');	%% Wake
 if pressure_interp_plot == 1
-    h_plot(7) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'b');             	%% •âŠÔ—¬‘Ì—ÍƒxƒNƒgƒ‹ [Pa]
+    h_plot(7) = quiver3( h_ax(i_ax),  0, 0, 0, 0, 0, 0, 'b');             	%% è£œé–“æµä½“åŠ›ãƒ™ã‚¯ãƒˆãƒ« [Pa]
 end
 all_Gamma_wake = cell2mat( reshape( h_Gamma_wake, [], 1));
 caxis( h_ax(i_ax), [ min( all_Gamma_wake) max( all_Gamma_wake)])
@@ -162,7 +162,7 @@ idx_r = reshape( [1:N_qi:N_q_all; 2:N_qi:N_q_all; 3:N_qi:N_q_all], 1, []);
 time_m = 0:d_t:time;
 
 
-%%[1-2] •âŠÔˆ³—ÍƒxƒNƒgƒ‹‚Ì—ğ‚ÌZo
+%%[1-2] è£œé–“åœ§åŠ›ãƒ™ã‚¯ãƒˆãƒ«ã®æ™‚åˆ»æ­´ã®ç®—å‡º
 if pressure_interp_plot == 1
     
     lgth_time = length( time_m(time_m <= Snapshot_tmax))*ceil(d_t/dt_wake_per_dt);
@@ -179,7 +179,7 @@ if pressure_interp_plot == 1
             r_vec_interp = zeros(3,length( p_vec),length( p_vec),N_element);
             dp_ni_interp = zeros(3,length( p_vec),length( p_vec),N_element);
 
-            %%[*] —¬‘Ì—Í‚ÌüŒ`•âŠÔ‚Ì‚½‚ß‚Ìƒm[ƒh’l
+            %%[*] æµä½“åŠ›ã®ç·šå½¢è£œé–“ã®ãŸã‚ã®ãƒãƒ¼ãƒ‰å€¤
             n_vec_i = ( h_dp_vec(:,i_wake_time)*ones(1,3) ).*h_n_vec(:,:,i_wake_time);
                     
             dp_nvec_i = zeros(N_element,3,3);        
@@ -188,17 +188,17 @@ if pressure_interp_plot == 1
             dp_nvec_i(1:end-Ny,:,3) = dp_nvec_i(Ny+1:end,:,2);
 
             for ii = 1:N_element
-                dL = dL_vec(ii);                        %% ii—v‘f‚Ì’·‚³ [-]
-                dW = dW_vec(ii);                        %% ii—v‘f‚Ì• [-]
+                dL = dL_vec(ii);                        %% iiè¦ç´ ã®é•·ã• [-]
+                dW = dW_vec(ii);                        %% iiè¦ç´ ã®å¹… [-]
 
-                %% 1ƒm[ƒh“–‚½‚è9¬•ª ( q_i = [ rx_i ry_i rz_i : dx_rx_i dx_ry_i dx_rz_i : dy_rx_i dy_ry_i dy_rz_i]^T ¸ R^9 )
-                %% 1—v‘f“–‚½‚è36¬•ª@( q := [ q_i1^T q_i2^T q_i3^T q_i4^T]^T ¸ R^36 )
+                %% 1ãƒãƒ¼ãƒ‰å½“ãŸã‚Š9æˆåˆ† ( q_i = [ rx_i ry_i rz_i : dx_rx_i dx_ry_i dx_rz_i : dy_rx_i dy_ry_i dy_rz_i]^T âˆˆ R^9 )
+                %% 1è¦ç´ å½“ãŸã‚Š36æˆåˆ†ã€€( q := [ q_i1^T q_i2^T q_i3^T q_i4^T]^T âˆˆ R^36 )
                 i_vec = repmat( ( N_qi*(nodes(ii,:) - 1)+1 ).', [ 1 N_qi]) + repmat( 0:N_qi-1, [ length( nodes(ii,:)) 1]);
                 i_vec = reshape(i_vec.',1,[]);
                 q_i_vec = q_vec(i_vec);
 
                 i_xi_a = 1;
-                for xi_a = p_vec                        %% Gauss-Legendre‹Ï
+                for xi_a = p_vec                        %% Gauss-Legendreæ±‚ç©
 
                     x_i = dL*(xi_a + 1)/2;
                     p_interp_vec = p_interp( x_i, ii, dL_vec, Nx, Ny);
@@ -234,7 +234,7 @@ end
 
 
 
-%%[1-3] ƒAƒjƒ[ƒVƒ‡ƒ“
+%%[1-3] ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 
 i_time = 1;
 i_wake_time = 1;
@@ -244,10 +244,10 @@ for time = time_m(time_m <= Snapshot_tmax)
         
         disp( [ 'Time = ', num2str( time, '%0.4f'), ' [s]'])
 
-        %%[1-0] ƒm[ƒh•ÏˆÊƒf[ƒ^’Šo
+        %%[1-0] ãƒãƒ¼ãƒ‰å¤‰ä½ãƒ‡ãƒ¼ã‚¿æŠ½å‡º
         r_vec = reshape( h_X_vec(idx_r,i_time), 3, []);
 
-        %%[1-1] 1—v‘f“–‚½‚è‚Ìƒm[ƒh‚ÌÀ•Wæ“¾
+        %%[1-1] 1è¦ç´ å½“ãŸã‚Šã®ãƒãƒ¼ãƒ‰ã®åº§æ¨™å–å¾—
         X = zeros(4,N_element) ;
         Y = zeros(4,N_element) ;
         Z = zeros(4,N_element) ;
@@ -257,12 +257,12 @@ for time = time_m(time_m <= Snapshot_tmax)
             Z(:,ii) = r_vec(3,nodes(ii,:));
         end
 
-        %%[1-2] plotXV
+        %%[1-2] plotæ›´æ–°
         set( h_plot(1), 'XData', X, 'YData', Y, 'ZData', Z);
                 
         set( h_txt(1), 'String', [ 'Time = ', num2str( time, '%0.3f'), ' [-]']);
         
-        %%[1-3] ‹““®‚ÌƒXƒiƒbƒvƒVƒ‡ƒbƒg
+        %%[1-3] æŒ™å‹•ã®ã‚¹ãƒŠãƒƒãƒ—ã‚·ãƒ§ãƒƒãƒˆ
         if Snapshot_tmin <= time && time <= Snapshot_tmax
             
             patch( X, Y, Z, 'r', 'Parent', h_ax(3), 'FaceAlpha', 0.5);
@@ -287,13 +287,13 @@ for time = time_m(time_m <= Snapshot_tmax)
         
     if mod( i_time, dt_wake_per_dt) == 0 && i_wake_time <= length( h_r_wake)
 
-        %%[1-2-0] ƒpƒlƒ‹ƒm[ƒh“_ [m]
+        %%[1-2-0] ãƒ‘ãƒãƒ«ãƒãƒ¼ãƒ‰ç‚¹ [m]
         x_node = h_r_panel_vec(:,1,i_wake_time);
         y_node = h_r_panel_vec(:,2,i_wake_time);
         z_node = h_r_panel_vec(:,3,i_wake_time);        
-        %%[1-2-1] ƒRƒƒP[ƒVƒ‡ƒ““_ [m]
+        %%[1-2-1] ã‚³ãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³ç‚¹ [m]
         r_col = h_rcol_vec(:,:,i_wake_time);
-        %%[1-2-2] —¬‘Ì—ÍƒxƒNƒgƒ‹ [Pa]: f = -dp*n*dS
+        %%[1-2-2] æµä½“åŠ›ãƒ™ã‚¯ãƒˆãƒ« [Pa]: f = -dp*n*dS
         n_vec_i = ( h_dp_vec(:,i_wake_time)*ones(1,3) ).*h_n_vec(:,:,i_wake_time);
 
         if panel_node_plot == 1
@@ -302,7 +302,7 @@ for time = time_m(time_m <= Snapshot_tmax)
             set( h_plot(4), 'XData', r_col(:,1), 'YData', r_col(:,2), 'ZData', r_col(:,3), 'UData', n_vec_i(:,1), 'VData', n_vec_i(:,2), 'WData', n_vec_i(:,3));
         end
         
-        %% •âŠÔ—¬‘Ì—ÍƒxƒNƒgƒ‹ [Pa]
+        %% è£œé–“æµä½“åŠ›ãƒ™ã‚¯ãƒˆãƒ« [Pa]
         if pressure_interp_plot == 1          
             
             set( h_plot(7), 'XData', h_r_vec_interp(1:3:end,i_wake_time), 'YData', h_r_vec_interp(2:3:end,i_wake_time), 'ZData', h_r_vec_interp(3:3:end,i_wake_time),...
@@ -311,7 +311,7 @@ for time = time_m(time_m <= Snapshot_tmax)
         
         
 
-        %%[1-2-3] •\–Ê—¬‘¬ƒxƒNƒgƒ‹ [m/s]
+        %%[1-2-3] è¡¨é¢æµé€Ÿãƒ™ã‚¯ãƒˆãƒ« [m/s]
         V_surf = h_V_surf(:,:,i_wake_time);                        
         V_wake_end = h_V_wake_end(:,:,i_wake_time);
         V_surf_all = [ V_surf;
@@ -372,10 +372,10 @@ h_ax(i_ax) = axes( 'Parent', h_fig(4), 'FontSize', 15);
 
 
 
-%%[2-0] ƒm[ƒh•ÏˆÊƒf[ƒ^’Šo
+%%[2-0] ãƒãƒ¼ãƒ‰å¤‰ä½ãƒ‡ãƒ¼ã‚¿æŠ½å‡º
 r_vec = reshape( h_X_vec(idx_r,i_time), 3, []);
 
-%%[2-1] 1—v‘f“–‚½‚è‚Ìƒm[ƒh‚ÌÀ•Wæ“¾
+%%[2-1] 1è¦ç´ å½“ãŸã‚Šã®ãƒãƒ¼ãƒ‰ã®åº§æ¨™å–å¾—
 X = zeros(4,N_element) ;
 Y = zeros(4,N_element) ;
 Z = zeros(4,N_element) ;
@@ -385,7 +385,7 @@ for ii = 1:N_element
     Z(:,ii) = r_vec(3,nodes(ii,:));
 end
 
-%%[2-2] ƒpƒlƒ‹ƒm[ƒh“_ [m]
+%%[2-2] ãƒ‘ãƒãƒ«ãƒãƒ¼ãƒ‰ç‚¹ [m]
 r_node = h_r_panel_vec(:,:,i_wake_time);
 
 N_node = size( r_node, 1)/4;
@@ -406,7 +406,7 @@ r_wake3 = r_wake(2*N_wake+ii_wake,:);
 r_wake4 = r_wake(3*N_wake+ii_wake,:);
 
 
-%%[2-4] ‘ÎÛÀ•W [m]
+%%[2-4] å¯¾è±¡åº§æ¨™ [m]
 [ X_mat, Z_mat] = meshgrid( linspace( -Length, 4*Length, 60),  linspace( -1.5*Length, 1.5*Length, 60));
 
 [ N_row N_col] = size( X_mat);
@@ -417,7 +417,7 @@ Y_v = Width/2*ones(N_row*N_col,1);
 
 r_xyz = [ X_v Y_v Z_v];
 
-%%[2-5] —¬‘¬•ª•z
+%%[2-5] æµé€Ÿåˆ†å¸ƒ
 Gamma_wake = h_Gamma_wake{i_wake_time};
 V_wake = V_wake_func( r_xyz, r_wake1, r_wake2, r_wake3, r_wake4, Gamma_wake, var_param, 0);
 V_gamma = V_wake_func( r_xyz, r_node1, r_node2, r_node3, r_node4, Gamma, var_param, 0);
@@ -427,7 +427,7 @@ V_xyz = V_wake + V_gamma + V_in;
 
 
 
-%%[2-6] —¬ü
+%%[2-6] æµç·š
 
 Z0_pos = linspace( -1.5*Length, 1.5*Length, 50);
 X0_pos = (-Length + eps)*ones(length( Z0_pos),1);
@@ -441,13 +441,13 @@ set( h_plot_streamline, 'LineWidth', 1)
 
 
 %%[2-7] plot
-idx_plot = 1:2:N_row*N_col;                                                 %% —¬‘¬ƒxƒNƒgƒ‹‚ğplot‚·‚é‚Æ‚«‚Íƒf[ƒ^”‚ğŠÔˆø‚­D
+idx_plot = 1:2:N_row*N_col;                                                 %% æµé€Ÿãƒ™ã‚¯ãƒˆãƒ«ã‚’plotã™ã‚‹ã¨ãã¯ãƒ‡ãƒ¼ã‚¿æ•°ã‚’é–“å¼•ãï¼
 
 dp_vec = h_dp_vec(:,i_wake_time);
 patch( X, Y, Z, 0, 'CData', dp_vec, 'Parent', h_ax(i_ax));
 hold( h_ax(i_ax), 'on')
-% quiver3( h_ax(i_ax), r_xyz(:,1), r_xyz(:,2), r_xyz(:,3), V_xyz(:,1), V_xyz(:,2), V_xyz(:,3), 'r', 'AutoScaleFactor', 2);          %% •\–Ê—¬‘¬ƒxƒNƒgƒ‹ [m/s]
-quiver5( r_xyz(idx_plot,1), r_xyz(idx_plot,2), r_xyz(idx_plot,3), V_xyz(idx_plot,1), V_xyz(idx_plot,2), V_xyz(idx_plot,3), 'r');    %% •\–Ê—¬‘¬ƒxƒNƒgƒ‹ [m/s]
+% quiver3( h_ax(i_ax), r_xyz(:,1), r_xyz(:,2), r_xyz(:,3), V_xyz(:,1), V_xyz(:,2), V_xyz(:,3), 'r', 'AutoScaleFactor', 2);          %% è¡¨é¢æµé€Ÿãƒ™ã‚¯ãƒˆãƒ« [m/s]
+quiver5( r_xyz(idx_plot,1), r_xyz(idx_plot,2), r_xyz(idx_plot,3), V_xyz(idx_plot,1), V_xyz(idx_plot,2), V_xyz(idx_plot,3), 'r');    %% è¡¨é¢æµé€Ÿãƒ™ã‚¯ãƒˆãƒ« [m/s]
 view( h_ax(i_ax), [0 -1 0])
 axis( h_ax(i_ax), 'equal')
 grid( h_ax(i_ax), 'on')
@@ -466,7 +466,7 @@ i_ax = i_ax + 1;
 
 
 
-%% ƒGƒlƒ‹ƒMûx
+%% ã‚¨ãƒãƒ«ã‚®åæ”¯
 
 h_W_inertia = [ 0 (h_E_inertia(3:end) - h_E_inertia(1:end-2))/(2*d_t) nan];
 h_W_em = [ 0 (h_E_em(3:end) - h_E_em(1:end-2))/(2*d_t) nan];
@@ -501,7 +501,7 @@ i_ax = i_ax + 1;
 
 
 
-%% ƒXƒpƒ“•ûŒü’†‰›•ÏˆÊ‚ÌƒXƒiƒbƒvƒVƒ‡ƒbƒg
+%% ã‚¹ãƒ‘ãƒ³æ–¹å‘ä¸­å¤®å¤‰ä½ã®ã‚¹ãƒŠãƒƒãƒ—ã‚·ãƒ§ãƒƒãƒˆ
 
 data.N_element = N_element;
 data.Nx = Nx;
@@ -532,7 +532,7 @@ ylim( h_ax(i_ax), [ -0.5 0.5])
 
 i_ax = i_ax + 1;
 
-%% ƒXƒpƒ“•ûŒü’†‰›‚Ì©—R’[•ÏˆÊ‚Ì—ğ
+%% ã‚¹ãƒ‘ãƒ³æ–¹å‘ä¸­å¤®ã®è‡ªç”±ç«¯å¤‰ä½ã®æ™‚åˆ»æ­´
 
 
 h_fig(7) = figure(7);
@@ -554,6 +554,91 @@ ylim( h_ax(i_ax), [ -0.5 0.5])
 i_ax = i_ax + 1;
 
 
+%% ã‚¹ãƒ‘ãƒ³æ–¹å‘ä¸­å¤®ã®è‡ªç”±ç«¯å¤‰ä½ãƒ»å¤‰ä½é€Ÿåº¦ã®ç›¸å¹³é¢
+
+%%[*] velocity 
+Z_center_vel = [    (Z_center_disp(:,2) - Z_center_disp(:,1)) ...
+                    (Z_center_disp(:,3:end) - Z_center_disp(:,1:end-2))/2 ...
+                    (Z_center_disp(:,end) - Z_center_disp(:,end-1))]/mean( diff( time_m) );
+
+h_fig(8) = figure(8);
+set( h_fig(8), 'Position', [100 100 500 500])
+
+h_ax(i_ax) = axes( 'Parent', h_fig(8));
+
+plot( h_ax(i_ax), Z_center_disp(end,:), Z_center_vel(end,:), 'b-', 'LineWidth', 1)
+
+set( h_ax(i_ax), 'FontName', 'Times New Roman', 'FontSize', 12)
+xlabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+ylabel( h_ax(i_ax), '{\itY}^* velocity', 'FontName', 'Times New Roman', 'FontSize', 15)
+xlim( h_ax(i_ax), [ -0.5 0.5])
+ylim( h_ax(i_ax), [ -1.5 1.5])
+
+
+
+
+i_ax = i_ax + 1;
+
+
+
+
+%% Velocity distribution (X-Z plane)
+
+
+
+rx_mat = reshape( r_xyz(:,1), N_row, []);
+rz_mat = reshape( r_xyz(:,3), N_row, []);
+
+Vx_mat = reshape( V_xyz(:,1), N_row, []);
+Vz_mat = reshape( V_xyz(:,3), N_row, []);
+
+Vx_mat( abs( Vx_mat) > 5 ) = nan;
+Vz_mat( abs( Vz_mat) > 5 ) = nan;
+
+%%[*] U velocity
+h_fig(9) = figure(9);
+set( h_fig(9), 'Position', [100 100 1200 500])
+h_ax(i_ax) = axes( 'Parent', h_fig(9), 'FontSize', 15);
+
+contourf( h_ax(i_ax), rx_mat, rz_mat, Vx_mat, 40, '-.')
+view( h_ax(i_ax), [0 0 1])
+axis( h_ax(i_ax), 'equal')
+grid( h_ax(i_ax), 'on')
+hold( h_ax(i_ax), 'on')
+xlim( h_ax(i_ax), [-Length 4*Length])
+ylim( h_ax(i_ax), [-1.5*Length 1.5*Length])
+xlabel( h_ax(i_ax), '{\itX}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+ylabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+
+plot( h_ax(i_ax), X_center_disp(:,end), Z_center_disp(:,end), 'b-', 'LineWidth', 4)
+
+
+
+i_ax = i_ax + 1;
+
+
+%%[*] W velocity
+h_fig(10) = figure(10);
+set( h_fig(10), 'Position', [100 100 1200 500])
+h_ax(i_ax) = axes( 'Parent', h_fig(10), 'FontSize', 15);
+
+contourf( h_ax(i_ax), rx_mat, rz_mat, Vz_mat, 40, '-.')
+view( h_ax(i_ax), [0 0 1])
+axis( h_ax(i_ax), 'equal')
+grid( h_ax(i_ax), 'on')
+hold( h_ax(i_ax), 'on')
+xlim( h_ax(i_ax), [-Length 4*Length])
+ylim( h_ax(i_ax), [-1.5*Length 1.5*Length])
+xlabel( h_ax(i_ax), '{\itX}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+ylabel( h_ax(i_ax), '{\itY}^* position', 'FontName', 'Times New Roman', 'FontSize', 15)
+
+plot( h_ax(i_ax), X_center_disp(:,end), Z_center_disp(:,end), 'b-', 'LineWidth', 4)
+
+
+
+i_ax = i_ax + 1;
+
+
 %% modes
 
 if exist( 'mode_num', 'var')
@@ -561,10 +646,10 @@ if exist( 'mode_num', 'var')
 
     for i_mode = 1:mode_num
        
-        %%[0] ŒÅ—Lƒm[ƒh•ÏˆÊƒf[ƒ^’Šo
+        %%[0] å›ºæœ‰ãƒãƒ¼ãƒ‰å¤‰ä½ãƒ‡ãƒ¼ã‚¿æŠ½å‡º
         Phi_r_vec = reshape( Phi_q_mat_BC(idx_r,i_mode), 3, []);
 
-        %%[1] 1—v‘f“–‚½‚è‚Ìƒm[ƒh‚ÌÀ•Wæ“¾
+        %%[1] 1è¦ç´ å½“ãŸã‚Šã®ãƒãƒ¼ãƒ‰ã®åº§æ¨™å–å¾—
         X = zeros(4,N_element) ;
         Y = zeros(4,N_element) ;
         Z = zeros(4,N_element) ;
@@ -574,7 +659,7 @@ if exist( 'mode_num', 'var')
             Z(:,ii) = Phi_r_vec(3,nodes(ii,:));
         end
       
-        %%[2] mode‚²‚Æ‚Éplot
+        %%[2] modeã”ã¨ã«plot
         i_fig = 7+i_mode;
         
         
@@ -610,7 +695,7 @@ end
 
 %% save
 
-fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate', 'snapshot_mid_span', 'displacement_mid_span'};
+fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate', 'snapshot_mid_span', 'displacement_mid_span', 'u_distribution', 'v_distribution'};
 fig_name_mode = 'mode';
 
 for ii = 1:length( h_fig)
