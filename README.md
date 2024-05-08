@@ -295,6 +295,9 @@ where index in vector shows the node index around a plate element to apply bound
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
 __Streamlines around flapping sheets (not streaklines)__
 
+![image](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/5486ee36-5b76-4134-8f72-8235ccf9a7b3)
+__Flow velocity distributions__
+
 ![displacement](https://user-images.githubusercontent.com/114337358/195290706-db1c0575-f07e-4d27-9696-a1ede965fedd.png)
 __Wake behind sheets__
 
