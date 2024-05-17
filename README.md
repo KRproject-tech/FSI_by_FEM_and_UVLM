@@ -1,5 +1,6 @@
 ![図1](https://user-images.githubusercontent.com/114337358/219939559-f0153a0e-2202-4760-9e00-2342ade1eb8a.png)
 # <p align=center>FSI_by_FEM_and_UVLM</p>
+![License](https://img.shields.io/github/license/yuki-koyama/elasty)
 
 <!--
 **Communication**
