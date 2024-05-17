@@ -317,7 +317,13 @@ __Comparisons of snapshot of a flapping sheet under various $U^*$ between numeri
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM)
 
+## License
 
+MIT License
+
+## Contributing
+
+Issue reports and pull requests are highly welcomed.
 
 ### References  
 [^1]: Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
