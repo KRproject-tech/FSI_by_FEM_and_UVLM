@@ -327,13 +327,14 @@ Issue reports and pull requests are highly welcomed.
 
 ### References  
 [^1]: Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
-https://doi.org/10.1299/mej.20-00459
+[OA: https://doi.org/10.1299/mej.20-00459]
 
 [^2]: Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).  
-https://doi.org/10.1142/S0219455422501632
+[https://doi.org/10.1142/S0219455422501632]
+[OA: https://www.researchgate.net/publication/360386901_Flow-induced_vibration_and_energy-harvesting_performance_analysis_for_parallelized_two_flutter-mills_considering_span-wise_plate_deformation_with_geometrical_nonlinearity_and_three-dimensional_flow]
 
 [^3]: Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).  
-https://doi.org/10.1016/j.jsv.2020.115359
+[https://doi.org/10.1016/j.jsv.2020.115359]
 
 [^4]: C. Förster, W. A. Wall, E. Ramm, Artificial added mass instabilities in sequential staggered coupling of nonlinear structures and incompressible viscous flows, Computer Methods in Applied Mechanics and Engineering, Vol. 196, No. 7, 2007.
 
