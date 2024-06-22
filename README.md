@@ -152,7 +152,7 @@ https://jp.mathworks.com/matlabcentral/fileexchange/22351-quiver-5?s_tid=FX_rc3_
 __[Step 1.2] Add path to installed ToolBoxes__
 
 Modify "add_pathes.m" to add path to abovementined installed ToolBoxes as follows,
-````
+````python
 addpath ./ToolBoxes/XX;
 ````
 where `XX` is the name of folder of the installed ToolBox.
