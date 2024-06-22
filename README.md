@@ -161,19 +161,19 @@ __[Step 1.3] Modify the source code in the “TriStream” ToolBox__
 
 "TriStream.m" must be modified to plot the stram line Line.
 
-````
+````python
 Line 49: x=x(:)'; y=y(:)'; x0=x0(:)'; y0=y0(:)'; u=u(:)'; v=v(:)';
 ````
 →
-````
+````python
  x=x(:)'; y=y(:)'; x0=x0(:)'; y0=y0(:)'; u=double(u(:)'); v=double(v(:)');
 ````
 and 
-````
+````python
 line 63: TRI = tsearch(x,y,tri',Xbeg,Ybeg);
 ````
 → 
-````
+````python
 TRI = tsearchn([x.' y.'], tri',[Xbeg.' Ybeg.']);
 ````
 
@@ -204,7 +204,7 @@ Results (figures and movie) plotted by [Step 4] are in "./XXXX/save" directory.
 
 Analytical condisions are in "./XXXX/save/param_setting.m"
 
-````
+````python
 %% Analytical conditions
 End_Time = 20;                                          %% Nondimensional analysis time [-]
 d_t = 1.0e-3;                                           %% Nondimensional step time [-]
@@ -233,7 +233,7 @@ where $H$ is the width, $E$ is the Young's modulus, and $I := Hh^3/12$ is second
     
 
  Initial disturbances on two sheets to break the trivial equilibrium are written as, 
-````
+````python
 q_in_norm = @( time)( 0.5*sin( pi*time/0.2).*( time < 0.2 ) );              %% Initial disturbance (upper sheet)
 q_in_norm_1 = @( time)( 0.0*sin( pi*time/0.2).*( time < 0.2 ) );        	%% Initial disturbance (lower sheet)
 q_in_vec = [ 0 0 1].';                                                      %% Force direction [-]  
@@ -242,7 +242,7 @@ q_in_vec = [ 0 0 1].';                                                      %% F
 
 Dimensions of sheets are defined by,
 
-````
+````python
 Length = 1.0;                                   %% (Nondimensional) length [-]
 Width = 1.0;                                    %% aspect ratio [-]
 Height = 2.0;                              	    %% distance between two sheets [-]
@@ -255,7 +255,7 @@ where the aspect ratio `Width` is $H^* := H/L$, the nondimensional thickness `th
 Boundary conditions for two sheets are written as,
 
 * __Clamped at the leading-edge__
-````
+````python
 %% Boundary conditions for two sheets
 
 %%[0] Upper sheet
@@ -271,7 +271,7 @@ node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% N
 ````
 
 * __Pinned at the leading-edge__
-````
+````python
 %% Boundary conditions for two sheets
 
 %%[0] Upper sheet
