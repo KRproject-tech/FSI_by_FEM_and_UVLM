@@ -21,14 +21,14 @@ source code for Matlab (Windows): FSI analysis for the flapping sheet under the 
 
 ## Overview
 This is the numerical simulation code for a limit cycle oscillation of a rectangular sheet flapping in a three-dimensional flow. 
-Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^6]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^5]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity. Robust FSI analysis under a large mass ratio is achieved by the strong coupling between the fluid solver and the structure solver by introducing the explicit added mass calculation. 
+Fluid flow is modeled using the unsteady vortex lattice method (UVLM) [^7]. A flexible sheet is modeled using the finite element method (FEM) with absolute nodal coordinate formulation (ANCF) for the shell element [^6]. This is done to reproduce the deformation of a plate while considering the spanwise deformation and geometrical nonlinearity. Robust FSI analysis under a large mass ratio is achieved by the strong coupling between the fluid solver and the structure solver by introducing the explicit added mass calculation. 
 
 Strong coupled FSI can achieve more robust numerical analysis under large fluid density than a loose coupling scheme.
 
 [![](https://img.youtube.com/vi/heaMrV6I3RQ/0.jpg)](https://www.youtube.com/watch?v=heaMrV6I3RQ)
 
 
-Numerical instability under large fluid density with a loose coupling scheme is caused by added mass term (artificial added mass instability [^4]).
+Numerical instability under large fluid density with a loose coupling scheme is caused by added mass term (artificial added mass instability [^5]).
 To avoid this problem, the added mass term is included in the structure model [^1][^2][^3]. 
 
 ![図1](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/68207493-a409-40a1-8285-5c37013cc47c)
@@ -37,7 +37,7 @@ Artificial added mass instability
 
 ![図2](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/dcb49d14-c57e-4869-b5fc-34c64cf79693)
 
-Proposed fast strong coupling scheme
+Proposed fast strong coupling scheme [^4]
 
 
 ![work_rate](https://github.com/KRproject-tech/FSI_by_FEM_and_UVLM/assets/114337358/9912a644-efb2-43d6-a2f0-88c514bee768)
@@ -306,7 +306,7 @@ __Wake behind sheets__
 __Snapshot of two flapping sheets__
 
 ![comparison](https://user-images.githubusercontent.com/114337358/233918767-5ddeca5e-bd84-4662-b5f2-995c8b75cd7e.png)
-__Comparisons of snapshot of a flapping sheet under various $U^*$ between numerical results (above) [^3] and experimental results (below) [^7]__
+__Comparisons of snapshot of a flapping sheet under various $U^*$ between numerical results (above) [^3] and experimental results (below) [^8]__
 
 
 ## Demonstration movie
@@ -332,17 +332,19 @@ Issue reports and pull requests are highly welcomed.
 [^2]: Flow-induced vibration and energy-harvesting performance analysis for parallelized two flutter-mills considering span-wise plate deformation with geometrical nonlinearity and three-dimensional flow, International Journal of Structural Stability and Dynamics, Vol. 22, No. 14, (2022).  
 [https://doi.org/10.1142/S0219455422501632]
 
-
 [^3]: Influence of boundary conditions on a flutter-mill, Journal of Sound and Vibration, Vol. 478, No. 21 (2020).  
 [https://doi.org/10.1016/j.jsv.2020.115359]
 
-[^4]: C. Förster, W. A. Wall, E. Ramm, Artificial added mass instabilities in sequential staggered coupling of nonlinear structures and incompressible viscous flows, Computer Methods in Applied Mechanics and Engineering, Vol. 196, No. 7, 2007.
+[^4]: Fast and Robust Staggered Approach for Fluid-Structure Interaction Simulation in a Thin Flapping Plate, The 12th International Conference on Computational Fluid Dynamics (ICCFD12), Kobe city (Kobe International Conference Center), Japan, July 2024.  
+[https://confit.atlas.jp/guide/event/iccfd12/session/31002-04/tables]
 
-[^5]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
+[^5]: C. Förster, W. A. Wall, E. Ramm, Artificial added mass instabilities in sequential staggered coupling of nonlinear structures and incompressible viscous flows, Computer Methods in Applied Mechanics and Engineering, Vol. 196, No. 7, 2007.
 
-[^6]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+[^6]: A. Shabana, Computational Continuum Mechanics, Chap. 6 (Cambridge University Press, 2008), pp. 231–285.
 
-[^7]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
+[^7]: J. Katz and A. Plotkin, Low-Speed Aerodynamics, (Cambridge University Press, New York, 2001).
+
+[^8]: M. Chen, L. Jia, Y. Wu, X. Yin, Y. Ma, Bifurcation and chaos of a flag in an inviscid flow, J. Fluid Struct. 45 (2014b) 124-137.
 
 
 
