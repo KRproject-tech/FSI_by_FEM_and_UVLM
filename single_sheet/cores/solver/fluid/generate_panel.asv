@@ -1,0 +1,18 @@
+%% Vortex lattice method ÇÃäiéqê∂ê¨ ( r_i = Sc(3/4dL,dW/2)*q_i, iÅ∏{1,...,N_element} )
+
+
+for ii = 1:N_element
+    
+    disp( [ 'Node number:', int2str( ii), '/', int2str( N_element)]);
+    
+    dL = dL_vec(ii);                        %% iióvëfÇÃí∑Ç≥ [m]
+    dW = dW_vec(ii);                        %% iióvëfÇÃïù [m]
+            
+            x_i = dL*(xi_a + 1)/2;
+            y_i = dW*(eta_a + 1)/2;
+            
+            Sc_mat_v(:,:,i_xi_a,i_eta_a,ii) = Sc_mat( x_i, y_i, dL, dW);
+           
+            
+
+end
