@@ -686,7 +686,7 @@ r_xyz = [ X_v Y_v Z_v];
 
 
 i_fig = 10;
-for i_time = idx_time_Tp_vec
+for i_time = idx_time_Tp_vec(1)
     
     %%[*] 構造時間から流体時間インデックスを算出．
     time = time_m(i_time);
@@ -897,7 +897,7 @@ end
 %% save
 
 fig_name = { 'nodes', 'displacement', 'snapshot', 'Velocity_field', 'work_rate', 'snapshot_mid_span', 'displacement_mid_span', 'disp_vel_mid_span_phase_plane', 'alpha_vs_CL',...
-             'u_distribution_0', 'v_distribution_0', 'Unorm_distribution_0', 'u_distribution_Tper4', 'v_distribution_Tper4', 'Unorm_distribution_Tper4', 'u_distribution_Tper2', 'v_distribution_Tper2', 'Unorm_distribution_Tper2', };
+             'u_distribution_0', 'v_distribution_0', 'Unorm_distribution_0' };
 fig_name_mode = 'mode';
 
 for ii = 1:length( h_fig)
