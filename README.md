@@ -52,6 +52,9 @@ Comparisons of energy of the sheet between loose coupling and strong coupling FS
 
 If you use this work in an academic context, please cite the following publication(s):
 
+<details><summary><b>Show Publications</b></summary>
+
+
 * Influence of the aspect ratio of the sheet for an electric generator utilizing the rotation of a flapping sheet, Mechanical Engineering Journal, Vol. 8, No. 1 (2021).  
 https://doi.org/10.1299/mej.20-00459
 
@@ -99,7 +102,13 @@ https://doi.org/10.1016/j.jsv.2020.115359
 }
 ````
 
+</details>
+
 ## Directory    
+
+<details><summary><b>Show Directories</b></summary>
+
+
 <pre>
 ├─double_sheets
 │  ├─cores
@@ -125,8 +134,14 @@ https://doi.org/10.1016/j.jsv.2020.115359
     │  └─structure
     └─ToolBoxes
 </pre>
+
+
+</details>
     
 ## Preparation before analysis
+
+<details><summary><b>Show instructions</b></summary>
+
 __[Step 1] Install the ToolBoxes__
 
 The following ToolBoxes in “./XXXX/ToolBoxes/” ("XXXX" is "double_sheets" and "single_sheet") are required,
@@ -202,8 +217,14 @@ __[Step 5] View plotted results__
 
 Results (figures and movie) plotted by [Step 4] are in "./XXXX/save" directory.
     
+</details>
+
+
 
 ## Parameters
+
+<details><summary><b>Show instructions</b></summary>
+
 
 Analytical condisions are in "./XXXX/save/param_setting.m"
 
@@ -292,6 +313,10 @@ where index in vector shows the node index around a plate element to apply bound
 
 ![タイトルなし](https://user-images.githubusercontent.com/114337358/196866330-b2dec9e7-cacc-441a-9c69-da409bc73a81.png)
 (b) Shell elements on a plate. A flexible sheet is partitioned by shell elements when the number of elements is $N_{elem} := N_x N_y$ [^2].
+
+
+
+</details>
 
 
 ## Gallery
