@@ -369,7 +369,7 @@ Issue reports and pull requests are highly welcomed.
 [https://doi.org/10.1016/j.jsv.2020.115359]
 
 [^4]: Fast and Robust Staggered Approach for Fluid-Structure Interaction Simulation in a Thin Flapping Plate, The 12th International Conference on Computational Fluid Dynamics (ICCFD12), Kobe city (Kobe International Conference Center), Japan, July 2024.  
-[https://confit.atlas.jp/guide/event/iccfd12/session/31002-04/tables]
+[https://iccfd.org/iccfd12/assets/pdf/papers/ICCFD12_Paper_4-A-02.pdf]
 
 [^5]: C. Förster, W. A. Wall, E. Ramm, Artificial added mass instabilities in sequential staggered coupling of nonlinear structures and incompressible viscous flows, Computer Methods in Applied Mechanics and Engineering, Vol. 196, No. 7, 2007.
 
