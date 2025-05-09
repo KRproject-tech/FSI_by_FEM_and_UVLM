@@ -232,7 +232,7 @@ Results (figures and movie) plotted by [Step 4] are in "./XXXX/save" directory.
 
 Analytical condisions are in "./XXXX/save/param_setting.m"
 
-````
+```matlab
 %% Analytical conditions
 End_Time = 20;                                          %% Nondimensional analysis time [-]
 d_t = 1.0e-3;                                           %% Nondimensional step time [-]
@@ -243,7 +243,7 @@ alpha_v = 0.5;                                          %% 1:implicit solver，0
 Ma = 1.0;                                              %% Mass ratio [-]
 Ua = 15.0;                                            	%% Nondimensional flow velocity [-]
 theta_a_vec = 0e-1*[ 0 10];                           	%% Nondimensional material damping [-]
-````
+```
 
 
 * __Mass ratio $M^*$__ is the density ratio of the fluid and sheet, which is defined by,
@@ -261,29 +261,29 @@ where $H$ is the width, $E$ is the Young's modulus, and $I := Hh^3/12$ is second
     
 
  Initial disturbances on two sheets to break the trivial equilibrium are written as, 
-````
+```matlab
 q_in_norm = @( time)( 0.5*sin( pi*time/0.2).*( time < 0.2 ) );              %% Initial disturbance (upper sheet)
 q_in_norm_1 = @( time)( 0.0*sin( pi*time/0.2).*( time < 0.2 ) );        	%% Initial disturbance (lower sheet)
 q_in_vec = [ 0 0 1].';                                                      %% Force direction [-]  
-````
+```
 
 
 Dimensions of sheets are defined by,
 
-````
+```matlab
 Length = 1.0;                                   %% (Nondimensional) length [-]
 Width = 1.0;                                    %% aspect ratio [-]
 Height = 2.0;                              	    %% distance between two sheets [-]
 thick = 1e-3;                                   %% thickness [-]
 
-````
+```
 where the aspect ratio `Width` is $H^* := H/L$, the nondimensional thickness `thick` is $h^* := h/L$, and the nondimensional distance between two sheets `Height` is $D^* := D/L$.
  
 
 Boundary conditions for two sheets are written as,
 
 * __Clamped at the leading-edge__
-````
+```matlab
 %% Boundary conditions for two sheets
 
 %%[0] Upper sheet
@@ -296,10 +296,10 @@ node_r_0_1 = [ 1:Ny+1 ];                                                    %% N
 node_dxr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving x-directional gradient constraint [-]
 node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving y-directional gradient constraint [-]
 
-````
+```
 
 * __Pinned at the leading-edge__
-````
+```matlab
 %% Boundary conditions for two sheets
 
 %%[0] Upper sheet
@@ -312,7 +312,7 @@ node_r_0_1 = [ 1:Ny+1 ];                                                    %% N
 node_dxr_0_1 = [ ];                                                         %% Node number giving x-directional gradient constraint [-]
 node_dyr_0_1 = [ 1:Ny+1 ];                                                  %% Node number giving y-directional gradient constraint [-]
 
-````
+```
 where index in vector shows the node index around a plate element to apply boundary conditions.
 
 ![タイトルなし](https://user-images.githubusercontent.com/114337358/196866330-b2dec9e7-cacc-441a-9c69-da409bc73a81.png)
