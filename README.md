@@ -183,20 +183,16 @@ __[Step 1.3] Modify the source code in the “TriStream” ToolBox__
 
 "TriStream.m" must be modified to plot the stram line Line.
 
-````
-Line 49: x=x(:)'; y=y(:)'; x0=x0(:)'; y0=y0(:)'; u=u(:)'; v=v(:)';
-````
-→
-````
- x=x(:)'; y=y(:)'; x0=x0(:)'; y0=y0(:)'; u=double(u(:)'); v=double(v(:)');
+```diff
+Line 49:
+- x=x(:)'; y=y(:)'; x0=x0(:)'; y0=y0(:)'; u=u(:)'; v=v(:)';
++ x=x(:)'; y=y(:)'; x0=x0(:)'; y0=y0(:)'; u=double(u(:)'); v=double(v(:)');
 ````
 and 
-````
-line 63: TRI = tsearch(x,y,tri',Xbeg,Ybeg);
-````
-→ 
-````
-TRI = tsearchn([x.' y.'], tri',[Xbeg.' Ybeg.']);
+```diff
+line 63:
+- TRI = tsearch(x,y,tri',Xbeg,Ybeg);
++ TRI = tsearchn([x.' y.'], tri',[Xbeg.' Ybeg.']);
 ````
 
 __[Step 2] Start GUI form__
