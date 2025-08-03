@@ -106,6 +106,19 @@ https://doi.org/10.1016/j.jsv.2020.115359
 }
 ````
 
+* Fast and Robust Staggered Approach for Fluid-Structure Interaction Simulation in a Thin Flapping Plate, The 12th International Conference on Computational Fluid Dynamics (ICCFD12), Kobe city, Japan, July 2024.
+
+````
+@proceedings{A_Yamano_2024_ICCFD12,
+  title        = {Fast and Robust Staggered Approach for Fluid-Structure Interaction Simulation in a Thin Flapping Plate},
+  author       = {Akio Yamano and Toshinobu Muramatsu and Takashi Iwasa1},
+  year         = {2024},
+  month        = {July},
+  publisher    = {The 12th International Conference on Computational Fluid Dynamics (ICCFD12)},
+  address      = {Kobe city, Japan},
+  pages        = {1--13}
+}
+````
 </details>
 
 ## Directory    
