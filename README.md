@@ -52,7 +52,7 @@ Proposed fast strong coupling scheme [^4]
 Comparisons of energy of the sheet between loose coupling and strong coupling FSI analysis
 
 
-## Publications
+## Publications 📑
 
 If you use this work in an academic context, please cite the following publication(s):
 
@@ -122,7 +122,7 @@ https://iccfd.org/iccfd12/assets/pdf/papers/ICCFD12_Paper_4-A-02.pdf
 ````
 </details>
 
-## Directory    
+## Directory 💻   
 
 <details><summary><b>Show Directories</b></summary>
 
@@ -156,7 +156,7 @@ https://iccfd.org/iccfd12/assets/pdf/papers/ICCFD12_Paper_4-A-02.pdf
 
 </details>
     
-## Preparation before analysis
+## Preparation before analysis 🧐
 
 <details><summary><b>Show instructions</b></summary>
 
@@ -235,7 +235,7 @@ Results (figures and movie) plotted by [Step 4] are in "./XXXX/save" directory.
 
 
 
-## Parameters
+## Parameters ⚙️
 
 <details><summary><b>Show instructions</b></summary>
 
@@ -333,7 +333,7 @@ where index in vector shows the node index around a plate element to apply bound
 </details>
 
 
-## Gallery
+## Gallery 📷
 
 ![Velocity_field](https://user-images.githubusercontent.com/114337358/192750314-cb1e90ff-6000-4cc9-8b85-8bcad371dddc.png)
 __Streamlines around flapping sheets (not streaklines)__
@@ -351,12 +351,12 @@ __Snapshot of two flapping sheets__
 __Comparisons of snapshot of a flapping sheet under various $U^*$ between numerical results (above) [^3] and experimental results (below) [^8]__
 
 
-## Demonstration movie
+## Demonstration movie 🎥
 
 [![](https://img.youtube.com/vi/9FOBByPBSeA/0.jpg)](https://youtu.be/9FOBByPBSeA)
 
 
-## Stargazers over time
+## Stargazers over time 📈
 [![Stargazers over time](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM.svg?variant=adaptive)](https://starchart.cc/KRproject-tech/FSI_by_FEM_and_UVLM)
 
 
